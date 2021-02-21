@@ -1,0 +1,361 @@
+2021-02-21T07:57:42.4058864+07:00 0HM6M0EON6I5O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-21T07:57:42.4058851+07:00 0HM6M0EON6I5N:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:51400/  0 (ca22a1cb)
+2021-02-21T07:57:42.4369744+07:00 0HM6M0EON6I5N:00000001 [INF] Request finished in 28.6919ms 200  (791a596a)
+2021-02-21T07:57:42.6124104+07:00 0HM6M0EON6I5O:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:57:42.6217360+07:00 0HM6M0EON6I5O:00000001 [INF] Authorization failed. (b15dd539)
+2021-02-21T07:57:42.6234598+07:00 0HM6M0EON6I5O:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2021-02-21T07:57:42.6291432+07:00 0HM6M0EON6I5O:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2021-02-21T07:57:42.6344025+07:00 0HM6M0EON6I5O:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2021-02-21T07:57:42.6383872+07:00 0HM6M0EON6I5O:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 21.8378ms (afa2e885)
+2021-02-21T07:57:42.6435696+07:00 0HM6M0EON6I5O:00000001 [INF] Request finished in 244.3037ms 302  (791a596a)
+2021-02-21T07:57:42.6475635+07:00 0HM6M0EON6I5N:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2021-02-21T07:57:42.6655464+07:00 0HM6M0EON6I5N:00000002 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String)" on controller "ShopApplication.Controllers.AccountController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:57:42.6785169+07:00 0HM6M0EON6I5N:00000002 [INF] Executed action "ShopApplication.Controllers.AccountController.Login (ShopApplication)" in 11.6941ms (afa2e885)
+2021-02-21T07:57:42.7166821+07:00 0HM6M0EON6I5N:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Unable to resolve service for type 'ShopApplication.Services.IEmailSender' while attempting to activate 'ShopApplication.Controllers.AccountController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-02-21T07:57:42.7468596+07:00 0HM6M0EON6I5N:00000002 [INF] Request finished in 98.9175ms 500 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:57:50.3893382+07:00 0HM6M0EON6I5O:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin/login   (ca22a1cb)
+2021-02-21T07:57:50.3929788+07:00 0HM6M0EON6I5O:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Login\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:57:50.4091298+07:00 0HM6M0EON6I5O:00000002 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:57:50.4149480+07:00 0HM6M0EON6I5O:00000002 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.7206ms. (50a9e262)
+2021-02-21T07:57:50.4402208+07:00 0HM6M0EON6I5O:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:57:50.5116710+07:00 0HM6M0EON6I5O:00000002 [INF] Executed ViewResult - view "Index" executed in 88.0689ms. (f66409e9)
+2021-02-21T07:57:50.5137373+07:00 0HM6M0EON6I5O:00000002 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" in 119.1913ms (afa2e885)
+2021-02-21T07:57:50.5195359+07:00 0HM6M0EON6I5O:00000002 [INF] Request finished in 130.6072ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:57:50.5334176+07:00 0HM6M0EON6I5N:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2021-02-21T07:57:50.5341814+07:00 0HM6M0EON6I5O:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2021-02-21T07:57:50.5360176+07:00 0HM6M0EON6I5P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/nprogress/nprogress.css   (ca22a1cb)
+2021-02-21T07:57:50.5386428+07:00 0HM6M0EON6I5Q:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/animate.css/animate.css   (ca22a1cb)
+2021-02-21T07:57:50.5407554+07:00 0HM6M0EON6I5R:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/css/custom.css   (ca22a1cb)
+2021-02-21T07:57:50.5423772+07:00 0HM6M0EON6I5S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2021-02-21T07:57:50.5445254+07:00 0HM6M0EON6I5T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/jquery/dist/jquery.js   (ca22a1cb)
+2021-02-21T07:57:50.5468624+07:00 0HM6M0EON6I5U:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2021-02-21T07:57:50.5517894+07:00 0HM6M0EON6I5V:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2021-02-21T07:57:50.5759294+07:00 0HM6M0EON6I60:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2021-02-21T07:57:50.5837016+07:00 0HM6M0EON6I61:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2021-02-21T07:57:50.6157386+07:00 0HM6M0EON6I62:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2021-02-21T07:57:50.6190466+07:00 0HM6M0EON6I63:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/app/shared/tedu.js   (ca22a1cb)
+2021-02-21T07:57:50.6225505+07:00 0HM6M0EON6I64:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/app/controller/login/index.js   (ca22a1cb)
+2021-02-21T07:57:50.6676608+07:00 0HM6M0EON6I5Q:00000001 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2021-02-21T07:57:50.6689670+07:00 0HM6M0EON6I5P:00000001 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2021-02-21T07:57:50.6736950+07:00 0HM6M0EON6I64:00000001 [INF] Sending file. Request path: '"/app/controller/login/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\app\controller\login\index.js"' (27b0a520)
+2021-02-21T07:57:50.6759076+07:00 0HM6M0EON6I5O:00000003 [INF] Sending file. Request path: '"/lib/font-awesome/css/font-awesome.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\font-awesome\css\font-awesome.css"' (27b0a520)
+2021-02-21T07:57:50.6791541+07:00 0HM6M0EON6I5R:00000001 [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2021-02-21T07:57:50.6817836+07:00 0HM6M0EON6I5N:00000003 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2021-02-21T07:57:50.6881338+07:00 0HM6M0EON6I5S:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2021-02-21T07:57:50.6894005+07:00 0HM6M0EON6I5R:00000001 [INF] Request finished in 143.7289ms 200 text/css (791a596a)
+2021-02-21T07:57:50.6916274+07:00 0HM6M0EON6I5O:00000003 [INF] Request finished in 155.1981ms 200 text/css (791a596a)
+2021-02-21T07:57:50.6939941+07:00 0HM6M0EON6I5N:00000003 [INF] Request finished in 163.2726ms 200 text/css (791a596a)
+2021-02-21T07:57:50.6952451+07:00 0HM6M0EON6I5S:00000001 [INF] Request finished in 147.138ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.6969496+07:00 0HM6M0EON6I5U:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2021-02-21T07:57:50.6984395+07:00 0HM6M0EON6I5V:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2021-02-21T07:57:50.7003136+07:00 0HM6M0EON6I5U:00000001 [INF] Request finished in 152.5312ms 200 text/css (791a596a)
+2021-02-21T07:57:50.7016505+07:00 0HM6M0EON6I5V:00000001 [INF] Request finished in 149.4505ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7030913+07:00 0HM6M0EON6I60:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2021-02-21T07:57:50.7047982+07:00 0HM6M0EON6I63:00000001 [INF] Sending file. Request path: '"/app/shared/tedu.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\app\shared\tedu.js"' (27b0a520)
+2021-02-21T07:57:50.7065133+07:00 0HM6M0EON6I60:00000001 [INF] Request finished in 129.2967ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7089004+07:00 0HM6M0EON6I5T:00000001 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2021-02-21T07:57:50.7106602+07:00 0HM6M0EON6I63:00000001 [INF] Request finished in 88.6072ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7119168+07:00 0HM6M0EON6I61:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2021-02-21T07:57:50.7141418+07:00 0HM6M0EON6I5T:00000001 [INF] Request finished in 167.7292ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7151393+07:00 0HM6M0EON6I61:00000001 [INF] Request finished in 130.4223ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7167579+07:00 0HM6M0EON6I62:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2021-02-21T07:57:50.7182274+07:00 0HM6M0EON6I5P:00000001 [INF] Request finished in 148.5323ms 200 text/css (791a596a)
+2021-02-21T07:57:50.7197896+07:00 0HM6M0EON6I62:00000001 [INF] Request finished in 128.1806ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7215606+07:00 0HM6M0EON6I64:00000001 [INF] Request finished in 63.1688ms 200 application/javascript (791a596a)
+2021-02-21T07:57:50.7230563+07:00 0HM6M0EON6I5Q:00000001 [INF] Request finished in 145.9595ms 200 text/css (791a596a)
+2021-02-21T07:57:51.9129133+07:00 0HM6M0EON6I5V:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin   (ca22a1cb)
+2021-02-21T07:57:51.9151452+07:00 0HM6M0EON6I5V:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Login\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:57:51.9167352+07:00 0HM6M0EON6I5V:00000002 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:57:51.9180176+07:00 0HM6M0EON6I5V:00000002 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0388ms. (50a9e262)
+2021-02-21T07:57:51.9200155+07:00 0HM6M0EON6I5V:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:57:51.9240402+07:00 0HM6M0EON6I5V:00000002 [INF] Executed ViewResult - view "Index" executed in 4.2581ms. (f66409e9)
+2021-02-21T07:57:51.9255872+07:00 0HM6M0EON6I5V:00000002 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" in 8.9758ms (afa2e885)
+2021-02-21T07:57:51.9273104+07:00 0HM6M0EON6I5V:00000002 [INF] Request finished in 14.577ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:57:52.0134195+07:00 0HM6M0EON6I5P:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2021-02-21T07:57:52.0386896+07:00 0HM6M0EON6I5P:00000002 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2021-02-21T07:57:52.0406304+07:00 0HM6M0EON6I5P:00000002 [INF] Request finished in 26.9268ms 200 font/woff2 (791a596a)
+2021-02-21T07:58:17.6688159+07:00 0HM6M0EON6I5O:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:44385/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2021-02-21T07:58:17.6793050+07:00 0HM6M0EON6I5O:00000004 [INF] Route matched with "{area = \"Admin\", action = \"Authen\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Authen(ShopApplication.Models.AccountViewModels.LoginViewModel)" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:58:17.7218756+07:00 0HM6M0EON6I5O:00000004 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:58:20.9020660+07:00 0HM6M0EON6I5O:00000004 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-21T07:58:20.9651650+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("16"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-21T07:58:21.1176579+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2021-02-21T07:58:21.1617024+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T07:58:21.1777248+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-21T07:58:21.2022621+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-21T07:58:21.2100060+07:00 0HM6M0EON6I5O:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T07:58:21.2188262+07:00 0HM6M0EON6I5O:00000004 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2021-02-21T07:58:21.2229655+07:00 0HM6M0EON6I5O:00000004 [INF] User logged in. (fdce0db4)
+2021-02-21T07:58:21.2263469+07:00 0HM6M0EON6I5O:00000004 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 3503.2169ms. (50a9e262)
+2021-02-21T07:58:21.2352701+07:00 0HM6M0EON6I5O:00000004 [INF] Executing ObjectResult, writing value of type '"ShopApplication.Ultilities.Dtos.GenericResult"'. (8a1b66c8)
+2021-02-21T07:58:21.2802499+07:00 0HM6M0EON6I5O:00000004 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" in 3599.563ms (afa2e885)
+2021-02-21T07:58:21.2837921+07:00 0HM6M0EON6I5O:00000004 [INF] Request finished in 3614.791ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-21T07:58:21.3003961+07:00 0HM6M0EON6I5U:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Admin/Home/Index   (ca22a1cb)
+2021-02-21T07:58:21.3099081+07:00 0HM6M0EON6I5U:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:58:21.3116567+07:00 0HM6M0EON6I5U:00000002 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:58:21.3145564+07:00 0HM6M0EON6I5U:00000002 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.4076ms. (50a9e262)
+2021-02-21T07:58:21.3195275+07:00 0HM6M0EON6I5U:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:58:21.3558039+07:00 0HM6M0EON6I5U:00000002 [INF] Executed ViewResult - view "Index" executed in 39.5169ms. (f66409e9)
+2021-02-21T07:58:21.3574568+07:00 0HM6M0EON6I5U:00000002 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" in 45.9362ms (afa2e885)
+2021-02-21T07:58:21.3590908+07:00 0HM6M0EON6I5U:00000002 [INF] Request finished in 58.9658ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:58:21.3740489+07:00 0HM6M0EON6I64:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/vendor/bootstrap/css/bootstrap.css   (ca22a1cb)
+2021-02-21T07:58:21.3780885+07:00 0HM6M0EON6I64:00000002 [INF] The file "/vendor/bootstrap/css/bootstrap.css" was not modified (f1f8d725)
+2021-02-21T07:58:21.3839521+07:00 0HM6M0EON6I64:00000002 [INF] Request finished in 6.7637ms 304 text/css (791a596a)
+2021-02-21T07:58:21.3870398+07:00 0HM6M0EON6I63:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/vendor/bootstrap/js/bootstrap.js   (ca22a1cb)
+2021-02-21T07:58:21.3879410+07:00 0HM6M0EON6I5Q:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/vendor/jquery/jquery.js   (ca22a1cb)
+2021-02-21T07:58:21.3898375+07:00 0HM6M0EON6I5Q:00000002 [INF] The file "/vendor/jquery/jquery.js" was not modified (f1f8d725)
+2021-02-21T07:58:21.3916895+07:00 0HM6M0EON6I63:00000002 [INF] The file "/vendor/bootstrap/js/bootstrap.js" was not modified (f1f8d725)
+2021-02-21T07:58:21.3941358+07:00 0HM6M0EON6I5Q:00000002 [INF] Request finished in 5.7669ms 304 application/javascript (791a596a)
+2021-02-21T07:58:21.3954120+07:00 0HM6M0EON6I63:00000002 [INF] Request finished in 8.3641ms 304 application/javascript (791a596a)
+2021-02-21T07:58:21.4368960+07:00 0HM6M0EON6I62:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notify.js   (ca22a1cb)
+2021-02-21T07:58:21.4384866+07:00 0HM6M0EON6I62:00000002 [INF] The file "/lib/notify.js" was not modified (f1f8d725)
+2021-02-21T07:58:21.4400497+07:00 0HM6M0EON6I62:00000002 [INF] Request finished in 3.2494ms 304 application/javascript (791a596a)
+2021-02-21T07:58:21.5847353+07:00 0HM6M0EON6I60:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff2?v=4.6.3   (ca22a1cb)
+2021-02-21T07:58:21.5854427+07:00 0HM6M0EON6I61:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2021-02-21T07:58:21.5868537+07:00 0HM6M0EON6I61:00000002 [INF] The file "/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" was not modified (f1f8d725)
+2021-02-21T07:58:21.5884259+07:00 0HM6M0EON6I61:00000002 [INF] Request finished in 4.4549ms 304 font/woff2 (791a596a)
+2021-02-21T07:58:21.5922275+07:00 0HM6M0EON6I60:00000002 [INF] Request finished in 6.5254ms 404  (791a596a)
+2021-02-21T07:58:21.5986653+07:00 0HM6M0EON6I5S:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff?v=4.6.3   (ca22a1cb)
+2021-02-21T07:58:21.6010520+07:00 0HM6M0EON6I5S:00000002 [INF] Request finished in 2.2455ms 404  (791a596a)
+2021-02-21T07:58:21.6072944+07:00 0HM6M0EON6I5N:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.ttf?v=4.6.3   (ca22a1cb)
+2021-02-21T07:58:21.6094418+07:00 0HM6M0EON6I5N:00000004 [INF] Request finished in 2.2615ms 404  (791a596a)
+2021-02-21T07:59:10.7799268+07:00 0HM6M0FJ208OJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-21T07:59:10.7799268+07:00 0HM6M0FJ208OK:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:51400/  0 (ca22a1cb)
+2021-02-21T07:59:10.8086337+07:00 0HM6M0FJ208OK:00000001 [INF] Request finished in 29.2769ms 200  (791a596a)
+2021-02-21T07:59:11.0348015+07:00 0HM6M0FJ208OJ:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:59:11.0461347+07:00 0HM6M0FJ208OJ:00000001 [INF] Authorization was successful. (0d575a54)
+2021-02-21T07:59:11.0574107+07:00 0HM6M0FJ208OJ:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:59:11.0626007+07:00 0HM6M0FJ208OJ:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6276ms. (50a9e262)
+2021-02-21T07:59:11.0849059+07:00 0HM6M0FJ208OJ:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:59:11.2129672+07:00 0HM6M0FJ208OJ:00000001 [INF] Executed ViewResult - view "Index" executed in 141.259ms. (f66409e9)
+2021-02-21T07:59:11.2149849+07:00 0HM6M0FJ208OJ:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 178.3136ms (afa2e885)
+2021-02-21T07:59:11.2228819+07:00 0HM6M0FJ208OJ:00000001 [INF] Request finished in 448.9463ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:59:11.2436993+07:00 0HM6M0FJ208OK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/css/site.css   (ca22a1cb)
+2021-02-21T07:59:11.2500528+07:00 0HM6M0FJ208OJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0   (ca22a1cb)
+2021-02-21T07:59:11.2508066+07:00 0HM6M0FJ208OL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2021-02-21T07:59:11.2528613+07:00 0HM6M0FJ208OM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner1.svg   (ca22a1cb)
+2021-02-21T07:59:11.2550638+07:00 0HM6M0FJ208ON:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner2.svg   (ca22a1cb)
+2021-02-21T07:59:11.2569266+07:00 0HM6M0FJ208OO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner3.svg   (ca22a1cb)
+2021-02-21T07:59:11.2676964+07:00 0HM6M0FJ208OJ:00000002 [INF] Sending file. Request path: '"/js/site.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\js\site.js"' (27b0a520)
+2021-02-21T07:59:11.2695301+07:00 0HM6M0FJ208OJ:00000002 [INF] Request finished in 20.3002ms 200 application/javascript (791a596a)
+2021-02-21T07:59:11.3041565+07:00 0HM6M0FJ208OK:00000002 [INF] Sending file. Request path: '"/css/site.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\css\site.css"' (27b0a520)
+2021-02-21T07:59:11.3051864+07:00 0HM6M0FJ208ON:00000001 [INF] Sending file. Request path: '"/images/banner2.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner2.svg"' (27b0a520)
+2021-02-21T07:59:11.3063921+07:00 0HM6M0FJ208OM:00000001 [INF] Sending file. Request path: '"/images/banner1.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner1.svg"' (27b0a520)
+2021-02-21T07:59:11.3080504+07:00 0HM6M0FJ208OO:00000001 [INF] Sending file. Request path: '"/images/banner3.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner3.svg"' (27b0a520)
+2021-02-21T07:59:11.3121981+07:00 0HM6M0FJ208OL:00000001 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2021-02-21T07:59:11.3193965+07:00 0HM6M0FJ208OK:00000002 [INF] Request finished in 76.6366ms 200 text/css (791a596a)
+2021-02-21T07:59:11.3202084+07:00 0HM6M0FJ208ON:00000001 [INF] Request finished in 63.9348ms 200 image/svg+xml (791a596a)
+2021-02-21T07:59:11.3214808+07:00 0HM6M0FJ208OL:00000001 [INF] Request finished in 69.8521ms 200 application/javascript (791a596a)
+2021-02-21T07:59:11.3236145+07:00 0HM6M0FJ208OM:00000001 [INF] Request finished in 66.017ms 200 image/svg+xml (791a596a)
+2021-02-21T07:59:11.3243521+07:00 0HM6M0FJ208OO:00000001 [INF] Request finished in 61.7583ms 200 image/svg+xml (791a596a)
+2021-02-21T07:59:14.8596108+07:00 0HM6M0FJ208OJ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin   (ca22a1cb)
+2021-02-21T07:59:14.8646884+07:00 0HM6M0FJ208OJ:00000003 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Login\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:59:14.8668250+07:00 0HM6M0FJ208OJ:00000003 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:59:14.8686975+07:00 0HM6M0FJ208OJ:00000003 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.4514ms. (50a9e262)
+2021-02-21T07:59:14.8746580+07:00 0HM6M0FJ208OJ:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:59:14.8993513+07:00 0HM6M0FJ208OJ:00000003 [INF] Executed ViewResult - view "Index" executed in 28.9131ms. (f66409e9)
+2021-02-21T07:59:14.9009331+07:00 0HM6M0FJ208OJ:00000003 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" in 34.756ms (afa2e885)
+2021-02-21T07:59:14.9027654+07:00 0HM6M0FJ208OJ:00000003 [INF] Request finished in 43.0827ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:59:20.2318844+07:00 0HM6M0FJ208OK:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44385/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2021-02-21T07:59:20.2552845+07:00 0HM6M0FJ208OK:00000003 [INF] Route matched with "{area = \"Admin\", action = \"Authen\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Authen(ShopApplication.Models.AccountViewModels.LoginViewModel)" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:59:20.2942730+07:00 0HM6M0FJ208OK:00000003 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:59:24.9006147+07:00 0HM6M0FJ208OK:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-21T07:59:24.9535141+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("10"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-21T07:59:25.1132824+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2021-02-21T07:59:25.1604605+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T07:59:25.1786859+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-21T07:59:25.2039242+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-21T07:59:25.2136743+07:00 0HM6M0FJ208OK:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T07:59:25.2227366+07:00 0HM6M0FJ208OK:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2021-02-21T07:59:25.2268872+07:00 0HM6M0FJ208OK:00000003 [INF] User logged in. (fdce0db4)
+2021-02-21T07:59:25.2307420+07:00 0HM6M0FJ208OK:00000003 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 4934.8464ms. (50a9e262)
+2021-02-21T07:59:25.2395062+07:00 0HM6M0FJ208OK:00000003 [INF] Executing ObjectResult, writing value of type '"ShopApplication.Ultilities.Dtos.GenericResult"'. (8a1b66c8)
+2021-02-21T07:59:25.2823500+07:00 0HM6M0FJ208OK:00000003 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" in 5025.537ms (afa2e885)
+2021-02-21T07:59:25.2857698+07:00 0HM6M0FJ208OK:00000003 [INF] Request finished in 5053.8978ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-21T07:59:25.2999293+07:00 0HM6M0FJ208OM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Admin/Home/Index   (ca22a1cb)
+2021-02-21T07:59:25.3038381+07:00 0HM6M0FJ208OM:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T07:59:25.3056867+07:00 0HM6M0FJ208OM:00000002 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T07:59:25.3084576+07:00 0HM6M0FJ208OM:00000002 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.3052ms. (50a9e262)
+2021-02-21T07:59:25.3135730+07:00 0HM6M0FJ208OM:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T07:59:25.3504853+07:00 0HM6M0FJ208OM:00000002 [INF] Executed ViewResult - view "Index" executed in 40.2505ms. (f66409e9)
+2021-02-21T07:59:25.3521742+07:00 0HM6M0FJ208OM:00000002 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" in 46.7403ms (afa2e885)
+2021-02-21T07:59:25.3539217+07:00 0HM6M0FJ208OM:00000002 [INF] Request finished in 54.0238ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T07:59:25.5827713+07:00 0HM6M0FJ208ON:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff2?v=4.6.3   (ca22a1cb)
+2021-02-21T07:59:25.5854026+07:00 0HM6M0FJ208ON:00000002 [INF] Request finished in 2.6821ms 404  (791a596a)
+2021-02-21T07:59:25.5924455+07:00 0HM6M0FJ208OO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff?v=4.6.3   (ca22a1cb)
+2021-02-21T07:59:25.5954909+07:00 0HM6M0FJ208OO:00000002 [INF] Request finished in 2.3816ms 404  (791a596a)
+2021-02-21T07:59:25.6022079+07:00 0HM6M0FJ208OL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.ttf?v=4.6.3   (ca22a1cb)
+2021-02-21T07:59:25.6045245+07:00 0HM6M0FJ208OL:00000002 [INF] Request finished in 2.3495ms 404  (791a596a)
+2021-02-21T08:44:42.2457729+07:00 0HM6M19139RT8:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:51400/  0 (ca22a1cb)
+2021-02-21T08:44:42.2457737+07:00 0HM6M19139RT7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-21T08:44:42.2729506+07:00 0HM6M19139RT8:00000001 [INF] Request finished in 27.361ms 200  (791a596a)
+2021-02-21T08:44:42.3134684+07:00 0HM6M19139RT7:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-21T08:44:42.3636582+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Avatar], [e].[Balance], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[DateCreated], [e].[DateModified], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2021-02-21T08:44:42.4936181+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2021-02-21T08:44:42.5286433+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T08:44:42.5458621+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-21T08:44:42.5680653+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-21T08:44:42.5751160+07:00 0HM6M19139RT7:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T08:44:42.7575668+07:00 0HM6M19139RT7:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T08:44:42.7681813+07:00 0HM6M19139RT7:00000001 [INF] Authorization was successful. (0d575a54)
+2021-02-21T08:44:42.7784858+07:00 0HM6M19139RT7:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T08:44:42.7831082+07:00 0HM6M19139RT7:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.6471ms. (50a9e262)
+2021-02-21T08:44:42.8045240+07:00 0HM6M19139RT7:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T08:44:42.9232383+07:00 0HM6M19139RT7:00000001 [INF] Executed ViewResult - view "Index" executed in 130.9622ms. (f66409e9)
+2021-02-21T08:44:42.9252113+07:00 0HM6M19139RT7:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 165.7329ms (afa2e885)
+2021-02-21T08:44:42.9366925+07:00 0HM6M19139RT7:00000001 [INF] Request finished in 696.9825ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T08:44:42.9526694+07:00 0HM6M19139RT8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/css/site.css   (ca22a1cb)
+2021-02-21T08:44:42.9613079+07:00 0HM6M19139RT7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0   (ca22a1cb)
+2021-02-21T08:44:42.9630619+07:00 0HM6M19139RT9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2021-02-21T08:44:42.9655897+07:00 0HM6M19139RTA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner3.svg   (ca22a1cb)
+2021-02-21T08:44:42.9701515+07:00 0HM6M19139RTB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner2.svg   (ca22a1cb)
+2021-02-21T08:44:42.9738837+07:00 0HM6M19139RTC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/images/banner1.svg   (ca22a1cb)
+2021-02-21T08:44:43.0074753+07:00 0HM6M19139RTC:00000001 [INF] Sending file. Request path: '"/images/banner1.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner1.svg"' (27b0a520)
+2021-02-21T08:44:43.0092219+07:00 0HM6M19139RTB:00000001 [INF] Sending file. Request path: '"/images/banner2.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner2.svg"' (27b0a520)
+2021-02-21T08:44:43.0102410+07:00 0HM6M19139RT8:00000002 [INF] Sending file. Request path: '"/css/site.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\css\site.css"' (27b0a520)
+2021-02-21T08:44:43.0120787+07:00 0HM6M19139RTB:00000001 [INF] Request finished in 40.7594ms 200 image/svg+xml (791a596a)
+2021-02-21T08:44:43.0129785+07:00 0HM6M19139RT8:00000002 [INF] Request finished in 60.0116ms 200 text/css (791a596a)
+2021-02-21T08:44:43.0141925+07:00 0HM6M19139RT7:00000002 [INF] Sending file. Request path: '"/js/site.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\js\site.js"' (27b0a520)
+2021-02-21T08:44:43.0154873+07:00 0HM6M19139RTA:00000001 [INF] Sending file. Request path: '"/images/banner3.svg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\images\banner3.svg"' (27b0a520)
+2021-02-21T08:44:43.0170756+07:00 0HM6M19139RT7:00000002 [INF] Request finished in 54.9654ms 200 application/javascript (791a596a)
+2021-02-21T08:44:43.0186510+07:00 0HM6M19139RTA:00000001 [INF] Request finished in 52.3933ms 200 image/svg+xml (791a596a)
+2021-02-21T08:44:43.0202249+07:00 0HM6M19139RTC:00000001 [INF] Request finished in 36.19ms 200 image/svg+xml (791a596a)
+2021-02-21T08:44:43.0226422+07:00 0HM6M19139RT9:00000001 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2021-02-21T08:44:43.0246005+07:00 0HM6M19139RT9:00000001 [INF] Request finished in 60.8648ms 200 application/javascript (791a596a)
+2021-02-21T08:44:47.3093435+07:00 0HM6M19139RT8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin   (ca22a1cb)
+2021-02-21T08:44:47.3145603+07:00 0HM6M19139RT8:00000003 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Login\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T08:44:47.3168777+07:00 0HM6M19139RT8:00000003 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T08:44:47.3189077+07:00 0HM6M19139RT8:00000003 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.3013ms. (50a9e262)
+2021-02-21T08:44:47.3262699+07:00 0HM6M19139RT8:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T08:44:47.3512050+07:00 0HM6M19139RT8:00000003 [INF] Executed ViewResult - view "Index" executed in 30.3798ms. (f66409e9)
+2021-02-21T08:44:47.3530145+07:00 0HM6M19139RT8:00000003 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Index (ShopApplication)" in 36.711ms (afa2e885)
+2021-02-21T08:44:47.3551631+07:00 0HM6M19139RT8:00000003 [INF] Request finished in 45.4011ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T08:44:52.7102515+07:00 0HM6M19139RT7:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44385/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 30 (ca22a1cb)
+2021-02-21T08:44:52.7322270+07:00 0HM6M19139RT7:00000003 [INF] Route matched with "{area = \"Admin\", action = \"Authen\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Authen(ShopApplication.Models.AccountViewModels.LoginViewModel)" on controller "ShopApplication.Areas.Admin.Controllers.LoginController" ("ShopApplication"). (122b2fdf)
+2021-02-21T08:44:52.7720116+07:00 0HM6M19139RT7:00000003 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T08:44:52.7864053+07:00 0HM6M19139RT7:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-21T08:44:52.7957056+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2021-02-21T08:44:52.8312487+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2021-02-21T08:44:52.8344171+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T08:44:52.8374569+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2021-02-21T08:44:52.8405432+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2021-02-21T08:44:52.8435308+07:00 0HM6M19139RT7:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2021-02-21T08:44:52.8489631+07:00 0HM6M19139RT7:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2021-02-21T08:44:52.8529297+07:00 0HM6M19139RT7:00000003 [INF] User logged in. (fdce0db4)
+2021-02-21T08:44:52.8566995+07:00 0HM6M19139RT7:00000003 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 82.9449ms. (50a9e262)
+2021-02-21T08:44:52.8654277+07:00 0HM6M19139RT7:00000003 [INF] Executing ObjectResult, writing value of type '"ShopApplication.Ultilities.Dtos.GenericResult"'. (8a1b66c8)
+2021-02-21T08:44:52.9044783+07:00 0HM6M19139RT7:00000003 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.LoginController.Authen (ShopApplication)" in 170.5824ms (afa2e885)
+2021-02-21T08:44:52.9075510+07:00 0HM6M19139RT7:00000003 [INF] Request finished in 196.9909ms 200 application/json; charset=utf-8 (791a596a)
+2021-02-21T08:44:52.9216948+07:00 0HM6M19139RTB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/Admin/Home/Index   (ca22a1cb)
+2021-02-21T08:44:52.9248881+07:00 0HM6M19139RTB:00000002 [INF] Route matched with "{area = \"Admin\", action = \"Index\", controller = \"Home\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Areas.Admin.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-21T08:44:52.9268891+07:00 0HM6M19139RTB:00000002 [INF] Executing action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-21T08:44:52.9294860+07:00 0HM6M19139RTB:00000002 [INF] Executed action method "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.0741ms. (50a9e262)
+2021-02-21T08:44:52.9343350+07:00 0HM6M19139RTB:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-21T08:44:52.9717529+07:00 0HM6M19139RTB:00000002 [INF] Executed ViewResult - view "Index" executed in 40.4223ms. (f66409e9)
+2021-02-21T08:44:52.9737007+07:00 0HM6M19139RTB:00000002 [INF] Executed action "ShopApplication.Areas.Admin.Controllers.HomeController.Index (ShopApplication)" in 46.9275ms (afa2e885)
+2021-02-21T08:44:52.9754889+07:00 0HM6M19139RTB:00000002 [INF] Request finished in 53.9209ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-21T08:44:53.1803556+07:00 0HM6M19139RTA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff2?v=4.6.3   (ca22a1cb)
+2021-02-21T08:44:53.1834070+07:00 0HM6M19139RTA:00000002 [INF] Request finished in 3.0857ms 404  (791a596a)
+2021-02-21T08:44:53.1905030+07:00 0HM6M19139RTC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.woff?v=4.6.3   (ca22a1cb)
+2021-02-21T08:44:53.1933100+07:00 0HM6M19139RTC:00000002 [INF] Request finished in 2.6411ms 404  (791a596a)
+2021-02-21T08:44:53.2045904+07:00 0HM6M19139RT9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/admin-side/fonts/fontawesome-webfont.ttf?v=4.6.3   (ca22a1cb)
+2021-02-21T08:44:53.2072204+07:00 0HM6M19139RT9:00000002 [INF] Request finished in 2.8255ms 404  (791a596a)

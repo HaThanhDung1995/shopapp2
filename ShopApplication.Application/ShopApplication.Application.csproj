@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopApplication.Data.EF\ShopApplication.Data.EF.csproj" />
+    <ProjectReference Include="..\ShopApplication.Data\ShopApplication.Data.csproj" />
+    <ProjectReference Include="..\ShopApplication.Ultilities\ShopApplication.Ultilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+  </ItemGroup>
+
+</Project>
