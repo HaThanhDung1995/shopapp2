@@ -13,6 +13,8 @@ using ShopApplication.Data.EF;
 using ShopApplication.Data.Entities;
 using ShopApplication.Infrastructure.Interfaces;
 using System;
+using ShopApplication.Application.Implementations;
+using ShopApplication.Application.Interfaces;
 using ShopApplication.Helpers;
 
 namespace ShopApplication
@@ -99,6 +101,23 @@ namespace ShopApplication
 
             #endregion
 
+            #region Service
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
+            services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IBillService, BillService>();
+            services.AddTransient<IBlogService, BlogService>();
+            services.AddTransient<ICommonService, CommonService>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IPageService, PageService>();
+            //services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IAnnouncementService, AnnouncementService>();
+
+
+            #endregion
             services.AddMvc()
                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
