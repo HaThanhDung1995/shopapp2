@@ -1,4 +1,11 @@
-﻿@section Scripts{
+﻿@section Styles
+{
+
+    <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
     <script src="~/app/controller/product/index.js"></script>
     <script>
         var product = new productController();
@@ -82,8 +89,8 @@
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
         <th scope="row">
-            <button class="btn btn-default btn-sm "><i class="fa fa-pencil"></i></button>
-            <button class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button>
+            <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
+            <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
         </th>
         <td>{{Name}}</td>
         <td>{{CategoryName}}</td>
@@ -93,3 +100,4 @@
         <td>{{{Status}}}</td>
     </tr>
 </script>
+@Html.Partial("_AddEditModal")

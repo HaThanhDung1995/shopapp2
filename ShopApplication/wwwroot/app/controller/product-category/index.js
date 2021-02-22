@@ -46,7 +46,7 @@
         });
 
         $('body').on('click', '#btnEdit', function (e) {
-            //e.preventDefault();
+            e.preventDefault();
            
             var that = $('#hidIdM').val();
             $.ajax({
@@ -58,31 +58,33 @@
                     tedu.startLoading();
                 },
                 success: function (response) {
+                    resetFormMaintainance();
                     console.log(response);
                     var data = response;
-                    $('#hidIdM').val(data.Id);
-                    $('#txtNameM').val(data.Name);
-                    initTreeDropDownCategory(data.CategoryId);
+                    $('#hidIdM').val(response.Id);
+                    $('#txtNameM').val(response.Name);
+                    initTreeDropDownCategory(response.CategoryId);
 
-                    $('#txtDescM').val(data.Description);
+                    $('#txtDescM').val(response.Description);
 
-                    $('#txtImage').val(data.ThumbnailImage);
+                    $('#txtImage').val(response.ThumbnailImage);
 
-                    $('#txtSeoKeywordM').val(data.SeoKeywords);
-                    $('#txtSeoDescriptionM').val(data.SeoDescription);
-                    $('#txtSeoPageTitleM').val(data.SeoPageTitle);
-                    $('#txtSeoAliasM').val(data.SeoAlias);
+                    $('#txtSeoKeywordM').val(response.SeoKeywords);
+                    $('#txtSeoDescriptionM').val(response.SeoDescription);
+                    $('#txtSeoPageTitleM').val(response.SeoPageTitle);
+                    $('#txtSeoAliasM').val(response.SeoAlias);
 
-                    $('#ckStatusM').prop('checked', data.Status == 1);
-                    $('#ckShowHomeM').prop('checked', data.HomeFlag);
-                    $('#txtOrderM').val(data.SortOrder);
-                    $('#txtHomeOrderM').val(data.HomeOrder);
+                    $('#ckStatusM').prop('checked', response.Status == 1);
+                    $('#ckShowHomeM').prop('checked', response.HomeFlag);
+                    $('#txtOrderM').val(response.SortOrder);
+                    $('#txtHomeOrderM').val(response.HomeOrder);
 
                     $('#modal-add-edit').modal('show');
                     tedu.stopLoading();
-                    resetFormMaintainance();
+                    
                 },
                 error: function (status) {
+                    console.log(status);
                     tedu.notify('Có lỗi xảy ra', 'error');
                     tedu.stopLoading();
                 }
