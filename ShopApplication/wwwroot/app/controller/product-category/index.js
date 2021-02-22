@@ -1,4 +1,4 @@
-﻿var productCategoryController = function() {
+﻿var productCategoryController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
@@ -38,15 +38,16 @@
                 success: function (path) {
                     $('#txtImage').val(path);
                     tedu.notify('Upload image succesful!', 'success');
-
                 },
                 error: function () {
                     tedu.notify('There was error uploading files!', 'error');
                 }
             });
         });
+
         $('body').on('click', '#btnEdit', function (e) {
-            e.preventDefault();
+            //e.preventDefault();
+           
             var that = $('#hidIdM').val();
             $.ajax({
                 type: "GET",
@@ -57,6 +58,7 @@
                     tedu.startLoading();
                 },
                 success: function (response) {
+                    console.log(response);
                     var data = response;
                     $('#hidIdM').val(data.Id);
                     $('#txtNameM').val(data.Name);
@@ -64,7 +66,7 @@
 
                     $('#txtDescM').val(data.Description);
 
-                    $('#txtImageM').val(data.ThumbnailImage);
+                    $('#txtImage').val(data.ThumbnailImage);
 
                     $('#txtSeoKeywordM').val(data.SeoKeywords);
                     $('#txtSeoDescriptionM').val(data.SeoDescription);
@@ -78,7 +80,7 @@
 
                     $('#modal-add-edit').modal('show');
                     tedu.stopLoading();
-
+                    resetFormMaintainance();
                 },
                 error: function (status) {
                     tedu.notify('Có lỗi xảy ra', 'error');
@@ -120,7 +122,7 @@
                 var parentId = $('#ddlCategoryIdM').combotree('getValue');
                 var description = $('#txtDescM').val();
 
-                var image = $('#txtImageM').val();
+                var image = $('#txtImage').val();
                 var order = parseInt($('#txtOrderM').val());
                 var homeOrder = $('#txtHomeOrderM').val();
 
@@ -130,7 +132,6 @@
                 var seoAlias = $('#txtSeoAliasM').val();
                 var status = $('#ckStatusM').prop('checked') == true ? 1 : 0;
                 var showHome = $('#ckShowHomeM').prop('checked');
-
                 $.ajax({
                     type: "POST",
                     url: "/Admin/ProductCategory/SaveEntity",
@@ -167,9 +168,9 @@
                         tedu.stopLoading();
                     }
                 });
+                
             }
             return false;
-
         });
     }
     function loadData() {
@@ -185,7 +186,6 @@
                         parentId: item.ParentId,
                         sortOrder: item.SortOrder
                     });
-
                 });
                 var treeArr = tedu.unflattern(data);
                 treeArr.sort(function (a, b) {
@@ -252,7 +252,50 @@
                         }
                     }
                 });
+            }
+        });
+    }
+    function resetFormMaintainance() {
+        $('#hidIdM').val(0);
+        $('#txtNameM').val('');
+        initTreeDropDownCategory('');
 
+        $('#txtDescM').val('');
+        $('#txtOrderM').val('');
+        $('#txtHomeOrderM').val('');
+        $('#txtImageM').val('');
+
+        $('#txtMetakeywordM').val('');
+        $('#txtMetaDescriptionM').val('');
+        $('#txtSeoPageTitleM').val('');
+        $('#txtSeoAliasM').val('');
+
+        $('#ckStatusM').prop('checked', true);
+        $('#ckShowHomeM').prop('checked', false);
+    }
+    function initTreeDropDownCategory(selectedId) {
+        $.ajax({
+            url: "/Admin/ProductCategory/GetAll",
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            success: function (response) {
+                var data = [];
+                $.each(response, function (i, item) {
+                    data.push({
+                        id: item.Id,
+                        text: item.Name,
+                        parentId: item.ParentId,
+                        sortOrder: item.SortOrder
+                    });
+                });
+                var arr = tedu.unflattern(data);
+                $('#ddlCategoryIdM').combotree({
+                    data: arr
+                });
+                if (selectedId != undefined) {
+                    $('#ddlCategoryIdM').combotree('setValue', selectedId);
+                }
             }
         });
     }
