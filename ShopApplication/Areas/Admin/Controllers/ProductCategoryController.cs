@@ -29,7 +29,48 @@ namespace ShopApplication.Areas.Admin.Controllers
             return new ObjectResult(model);
         }
 
-
-        #endregion
+        [HttpPost]
+        public IActionResult UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new BadRequestObjectResult(ModelState);
+            }
+            else
+            {
+                if (sourceId == targetId)
+                {
+                    return new BadRequestResult();
+                }
+                else
+                {
+                    _productCategoryService.UpdateParentId(sourceId, targetId, items);
+                    _productCategoryService.Save();
+                    return new OkResult();
+                }
+            }
         }
+        [HttpPost]
+        public IActionResult ReOrder(int sourceId, int targetId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new BadRequestObjectResult(ModelState);
+            }
+            else
+            {
+                if (sourceId == targetId)
+                {
+                    return new BadRequestResult();
+                }
+                else
+                {
+                    _productCategoryService.ReOrder(sourceId, targetId);
+                    _productCategoryService.Save();
+                    return new OkResult();
+                }
+            }
+        }
+        #endregion
+    }
 }
