@@ -7,6 +7,7 @@ namespace ShopApplication.Data.Enums
 {
     public enum PaymentMethod
     {
+
         [Description("Cash on delivery")]
         CashOnDelivery,
         [Description("Onlin Banking")]
