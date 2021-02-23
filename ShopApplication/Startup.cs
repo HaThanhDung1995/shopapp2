@@ -13,8 +13,10 @@ using ShopApplication.Data.EF;
 using ShopApplication.Data.Entities;
 using ShopApplication.Infrastructure.Interfaces;
 using System;
+using Microsoft.AspNetCore.Authorization;
 using ShopApplication.Application.Implementations;
 using ShopApplication.Application.Interfaces;
+using ShopApplication.Authorization;
 using ShopApplication.Helpers;
 
 namespace ShopApplication
@@ -116,6 +118,13 @@ namespace ShopApplication
             //services.AddTransient<IReportService, ReportService>();
             services.AddTransient<IAnnouncementService, AnnouncementService>();
 
+
+            #endregion
+
+            #region Authorization
+
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+            
 
             #endregion
             services.AddMvc()

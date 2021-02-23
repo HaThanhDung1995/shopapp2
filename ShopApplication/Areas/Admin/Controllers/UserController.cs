@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.SignalR;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Application.ViewModels.System;
 using ShopApplication.Data.Enums;
 using ShopApplication.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using ShopApplication.Authorization;
 
 namespace ShopApplication.Areas.Admin.Controllers
 {
@@ -18,7 +18,6 @@ namespace ShopApplication.Areas.Admin.Controllers
         private readonly IUserService _userService;
         private readonly IAuthorizationService _authorizationService;
         //private readonly IHubContext<TeduHub> _hubContext;
-
 
         public UserController(IUserService userService,
             IAuthorizationService authorizationService
@@ -29,14 +28,15 @@ namespace ShopApplication.Areas.Admin.Controllers
             //_hubContext = hubContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
-            //if (result.Succeeded == false)
-                //return new RedirectResult("/Admin/Login/Index");
+            var result = await _authorizationService.AuthorizeAsync(User, "USER", Operations.Read);
+            if (result.Succeeded == false)
+                return new RedirectResult("/Admin/Login/Index");
 
             return View();
         }
+
         public IActionResult GetAll()
         {
             var model = _userService.GetAllAsync();
@@ -77,7 +77,6 @@ namespace ShopApplication.Areas.Admin.Controllers
                     Title = "User created",
                     UserId = User.GetUserId(),
                     Id = Guid.NewGuid().ToString(),
-
                 };
                 await _userService.AddAsync(userVm);
                 //await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);
