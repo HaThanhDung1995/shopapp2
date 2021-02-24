@@ -161,7 +161,7 @@ namespace ShopApplication
                 routes.MapRoute(name: "areaRoute",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
-            //            db.Seed().Wait();
+           
         }
     }
 }
