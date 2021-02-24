@@ -11,7 +11,7 @@ using ShopApplication.Models;
 
 namespace ShopApplication.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
        
