@@ -7,6 +7,7 @@
 @section Scripts{
     <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
     <script src="~/app/controller/product/quantity-management.js"></script>
+    <script src="~/app/controller/product/image-management.js"></script>
     <script src="~/app/controller/product/index.js"></script>
     <script>
         var product = new productController();
@@ -89,10 +90,7 @@
 </div>
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
-        <th scope="row">
-            <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
-            <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
-        </th>
+
         <td>{{Name}}</td>
         <td>{{CategoryName}}</td>
         <td>{{Price}}</td>
@@ -100,12 +98,14 @@
         <td>{{CreatedDate}}</td>
         <td>{{{Status}}}</td>
         <th scope="row">
-
+            <a class="btn  btn-sm btn-edit" data-id="{{Id}}"><i class="fa fa-pencil"></i></a>
+            <a class="btn  btn-sm btn-delete" data-id="{{Id}}"><i class="fa fa-trash"></i></a>
+            <a href="#" data-id="{{Id}}" class="btn btn-xs btn-images"><i class="fa fa-image"></i></a>
             <a href="#" data-id="{{Id}}" class="btn btn-xs btn-quantity"><i class="fa fa-hourglass-start"></i></a>
-
         </th>
     </tr>
 </script>
 @Html.Partial("_AddEditModal")
 @Html.Partial("_ImportExcelModal")
 @Html.Partial("_QuantityManagement")
+@Html.Partial("_ImageManagement")
