@@ -12,6 +12,7 @@ using OfficeOpenXml;
 using OfficeOpenXml.Table;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Application.ViewModels;
+using ShopApplication.Application.ViewModels.Product;
 using ShopApplication.Ultilities.Helpers;
 
 namespace ShopApplication.Areas.Admin.Controllers
@@ -159,6 +160,20 @@ namespace ShopApplication.Areas.Admin.Controllers
                 package.Save(); //Save the workbook.
             }
             return new OkObjectResult(fileUrl);
+        }
+        [HttpPost]
+        public IActionResult SaveQuantities(int productId, List<ProductQuantityViewModel> quantities)
+        {
+            _productService.AddQuantity(productId, quantities);
+            _productService.Save();
+            return new OkObjectResult(quantities);
+        }
+
+        [HttpGet]
+        public IActionResult GetQuantities(int productId)
+        {
+            var quantities = _productService.GetQuantities(productId);
+            return new OkObjectResult(quantities);
         }
         #endregion
     }
