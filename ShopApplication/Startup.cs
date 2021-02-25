@@ -18,6 +18,7 @@ using ShopApplication.Application.Implementations;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Authorization;
 using ShopApplication.Helpers;
+using ShopApplication.Services;
 
 namespace ShopApplication
 {
@@ -82,6 +83,12 @@ namespace ShopApplication
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp =>
                 new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+            #endregion
+
+            #region Khai Báo Email Extension
+            services.AddTransient<IEmailSender, EmailSender>();
+        
+
             #endregion
 
             #region khởi tạo dữ liệu đầu tiên nếu database bị rỗng
