@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopApplication.Data.Entities;
 using ShopApplication.Data.Enums;
 using ShopApplication.Models;
@@ -221,7 +222,7 @@ namespace ShopApplication.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        //[ValidateRecaptcha]
+        [ValidateRecaptcha]
         [Route("register.html")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {

@@ -14,6 +14,7 @@ using ShopApplication.Data.Entities;
 using ShopApplication.Infrastructure.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopApplication.Application.Implementations;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Authorization;
@@ -71,7 +72,16 @@ namespace ShopApplication
                 options.User.RequireUniqueEmail = true;
             });
             #endregion End Congigure Identity Password
-            
+
+            #region Recapcha
+            services.AddRecaptcha(new RecaptchaOptions()
+            {
+                SiteKey = Configuration["Recaptcha:SiteKey"],
+                SecretKey = Configuration["Recaptcha:SecretKey"]
+            });
+
+
+            #endregion
 
             #region Nếu muốn thêm seed data với AppUser và AppRole thì phải khai báo trong Service
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
