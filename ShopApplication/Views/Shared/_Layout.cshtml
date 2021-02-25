@@ -90,6 +90,12 @@
 <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
 <script src="~/lib/mustache/mustache.js"></script>
 <script src="~/client-ap/shared/tedu.js"></script>
+<script src="~/client-ap/controller/base/index.js"></script>
+
+<script>
+    var baseObj = new BaseController();
+    baseObj.initialize();
+</script>
     @RenderSection("Scripts", required: false);
 
 </body>
