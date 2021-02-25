@@ -97,7 +97,7 @@ namespace ShopApplication
 
             #region Khai Báo Email Extension
             services.AddTransient<IEmailSender, EmailSender>();
-        
+            services.AddTransient<IViewRenderService, ViewRenderService>();
 
             #endregion
 
