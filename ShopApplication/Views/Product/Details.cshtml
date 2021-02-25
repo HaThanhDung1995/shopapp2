@@ -6,6 +6,13 @@
     var category = Model.Category;
     var product = Model.Product;
 }
+@section Scripts{
+    <script src="~/client-ap/controller/product/details.js"></script>
+    <script>
+        var productObj = new ProductDetailController();
+        productObj.initialize();
+    </script>
+}
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="container">

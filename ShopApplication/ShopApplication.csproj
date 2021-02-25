@@ -51,6 +51,8 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="wwwroot\client-ap\controller\cart\" />
+    <Folder Include="wwwroot\client-ap\controller\home\" />
   </ItemGroup>
 
   <ItemGroup>

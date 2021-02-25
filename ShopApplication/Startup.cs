@@ -120,6 +120,16 @@ namespace ShopApplication
 
             #endregion
 
+            #region Session
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+
+            #endregion
+
             #region Service
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
@@ -169,7 +179,7 @@ namespace ShopApplication
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
