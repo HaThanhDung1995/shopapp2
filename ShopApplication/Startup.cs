@@ -53,6 +53,8 @@ namespace ShopApplication
                 ));
             #endregion
 
+            services.AddMemoryCache();
+            services.AddMinResponse();
 
 
             #region Congigure Identity Password
@@ -198,6 +200,7 @@ namespace ShopApplication
             app.UseHttpsRedirection();
             app.UseImageResizer();
             app.UseStaticFiles();
+            app.UseMinResponse();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
