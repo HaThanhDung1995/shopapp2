@@ -2576,3 +2576,1257 @@ ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
 2021-02-26T06:30:56.0639600+07:00 0HM6PSIEM9T8P:0000000A [INF] Executed ViewResult - view "Checkout" executed in 13.5397ms. (f66409e9)
 2021-02-26T06:30:56.0640482+07:00 0HM6PSIEM9T8P:0000000A [INF] Executed action "ShopApplication.Controllers.CartController.Checkout (ShopApplication)" in 635.765ms (afa2e885)
 2021-02-26T06:30:56.0641755+07:00 0HM6PSIEM9T8P:0000000A [INF] Request finished in 648.7976ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:28:41.0843870+07:00 0HM6Q0QEEPNM7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-26T10:28:41.1350433+07:00 0HM6Q0QEEPNM7:00000001 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:28:41.2755814+07:00 0HM6Q0QEEPNM7:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:28:41.2843763+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:28:41.2873947+07:00 0HM6Q0QEEPNM7:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:28:41.3167696+07:00 0HM6Q0QEEPNM7:00000001 [WRN] The Include operation for navigation '"[c].Products"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2021-02-26T10:28:41.3545600+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:28:41.3686507+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.4165490+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:41.4336108+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:41.4664439+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:41.4710957+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:41.4907707+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.5032553+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:28:41.5119560+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 225.0712ms. (50a9e262)
+2021-02-26T10:28:41.5286619+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:28:41.6551520+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.6590518+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.6984874+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.6990228+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.7074427+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.7079976+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.7555779+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed ViewResult - view "Index" executed in 237.0413ms. (f66409e9)
+2021-02-26T10:28:41.7634117+07:00 0HM6Q0QEEPNM7:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 487.4676ms (afa2e885)
+2021-02-26T10:28:41.7728185+07:00 0HM6Q0QEEPNM8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-default.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7749478+07:00 0HM6Q0QEEPNM9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-english.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7764346+07:00 0HM6Q0QEEPNMA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-german.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7844545+07:00 0HM6Q0QEEPNMC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-chile.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7844551+07:00 0HM6Q0QEEPNMB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-brazil.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7845730+07:00 0HM6Q0QEEPNMD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/logo.png   (ca22a1cb)
+2021-02-26T10:28:41.7867577+07:00 0HM6Q0QEEPNMD:00000001 [INF] Sending file. Request path: '"/client-side/images/logo.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\logo.png"' (27b0a520)
+2021-02-26T10:28:41.7867627+07:00 0HM6Q0QEEPNMC:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-chile.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-chile.jpg"' (27b0a520)
+2021-02-26T10:28:41.7868130+07:00 0HM6Q0QEEPNMB:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-brazil.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-brazil.jpg"' (27b0a520)
+2021-02-26T10:28:41.7871775+07:00 0HM6Q0QEEPNMB:00000001 [INF] Request finished in 2.6192ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7871775+07:00 0HM6Q0QEEPNMD:00000001 [INF] Request finished in 2.3129ms 200 image/png (791a596a)
+2021-02-26T10:28:41.7873801+07:00 0HM6Q0QEEPNMC:00000001 [INF] Request finished in 2.57ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7878184+07:00 0HM6Q0QEEPNMK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/slider/slide-1.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7878695+07:00 0HM6Q0QEEPNMI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/products/product-1.jpg?w=190   (ca22a1cb)
+2021-02-26T10:28:41.7879103+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/?w=190   (ca22a1cb)
+2021-02-26T10:28:41.7893511+07:00 0HM6Q0QEEPNMJ:00000001 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:28:41.7897221+07:00 0HM6Q0QEEPNML:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/slider/slide-2.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7901202+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:28:41.7904566+07:00 0HM6Q0QEEPNMM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/slider/slide-3.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7906798+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:28:41.7915675+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:28:41.7921324+07:00 0HM6Q0QEEPNMD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand1.png   (ca22a1cb)
+2021-02-26T10:28:41.7927211+07:00 0HM6Q0QEEPNMF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/sub1.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7927942+07:00 0HM6Q0QEEPNMG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/banner-left.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7929209+07:00 0HM6Q0QEEPNM9:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-english.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-english.jpg"' (27b0a520)
+2021-02-26T10:28:41.7929452+07:00 0HM6Q0QEEPNME:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/products/product-1.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7930204+07:00 0HM6Q0QEEPNM9:00000001 [INF] Request finished in 18.1229ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7931590+07:00 0HM6Q0QEEPNMH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/sub1a.jpg   (ca22a1cb)
+2021-02-26T10:28:41.7931757+07:00 0HM6Q0QEEPNMD:00000002 [INF] Sending file. Request path: '"/client-side/images/brand1.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand1.png"' (27b0a520)
+2021-02-26T10:28:41.7931879+07:00 0HM6Q0QEEPNMA:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-german.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-german.jpg"' (27b0a520)
+2021-02-26T10:28:41.7932131+07:00 0HM6Q0QEEPNMD:00000002 [INF] Request finished in 1.1188ms 200 image/png (791a596a)
+2021-02-26T10:28:41.7932492+07:00 0HM6Q0QEEPNMA:00000001 [INF] Request finished in 16.8966ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7932555+07:00 0HM6Q0QEEPNMI:00000001 [INF] Sending file. Request path: '"/client-side/images/products/product-1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\products\product-1.jpg"' (27b0a520)
+2021-02-26T10:28:41.7932848+07:00 0HM6Q0QEEPNMI:00000001 [INF] Request finished in 5.5091ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7932737+07:00 0HM6Q0QEEPNM8:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-default.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-default.jpg"' (27b0a520)
+2021-02-26T10:28:41.7933286+07:00 0HM6Q0QEEPNM8:00000001 [INF] Request finished in 20.639ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7933283+07:00 0HM6Q0QEEPNMK:00000001 [INF] Sending file. Request path: '"/client-side/images/slider/slide-1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\slider\slide-1.jpg"' (27b0a520)
+2021-02-26T10:28:41.7933674+07:00 0HM6Q0QEEPNMK:00000001 [INF] Request finished in 5.5841ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7933750+07:00 0HM6Q0QEEPNM7:00000001 [INF] Request finished in 713.3555ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:28:41.7934950+07:00 0HM6Q0QEEPNML:00000001 [INF] Sending file. Request path: '"/client-side/images/slider/slide-2.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\slider\slide-2.jpg"' (27b0a520)
+2021-02-26T10:28:41.7935479+07:00 0HM6Q0QEEPNML:00000001 [INF] Request finished in 3.8712ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7940339+07:00 0HM6Q0QEEPNME:00000001 [INF] Sending file. Request path: '"/client-side/images/products/product-1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\products\product-1.jpg"' (27b0a520)
+2021-02-26T10:28:41.7940959+07:00 0HM6Q0QEEPNME:00000001 [INF] Request finished in 1.2337ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7942768+07:00 0HM6Q0QEEPNMN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand2.png   (ca22a1cb)
+2021-02-26T10:28:41.7947408+07:00 0HM6Q0QEEPNMF:00000001 [INF] Sending file. Request path: '"/client-side/images/sub1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\sub1.jpg"' (27b0a520)
+2021-02-26T10:28:41.7948220+07:00 0HM6Q0QEEPNMF:00000001 [INF] Request finished in 2.1788ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7950435+07:00 0HM6Q0QEEPNMN:00000001 [INF] Sending file. Request path: '"/client-side/images/brand2.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand2.png"' (27b0a520)
+2021-02-26T10:28:41.7951268+07:00 0HM6Q0QEEPNMN:00000001 [INF] Request finished in 0.8397ms 200 image/png (791a596a)
+2021-02-26T10:28:41.7957366+07:00 0HM6Q0QEEPNMG:00000001 [INF] Sending file. Request path: '"/client-side/images/banner-left.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\banner-left.jpg"' (27b0a520)
+2021-02-26T10:28:41.7958285+07:00 0HM6Q0QEEPNMG:00000001 [INF] Request finished in 3.0512ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7961468+07:00 0HM6Q0QEEPNMH:00000001 [INF] Sending file. Request path: '"/client-side/images/sub1a.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\sub1a.jpg"' (27b0a520)
+2021-02-26T10:28:41.7961977+07:00 0HM6Q0QEEPNMH:00000001 [INF] Request finished in 3.0673ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7970111+07:00 0HM6Q0QEEPNMM:00000001 [INF] Sending file. Request path: '"/client-side/images/slider/slide-3.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\slider\slide-3.jpg"' (27b0a520)
+2021-02-26T10:28:41.7971731+07:00 0HM6Q0QEEPNMM:00000001 [INF] Request finished in 6.6972ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.7993895+07:00 0HM6Q0QEEPNM7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-spain.jpg   (ca22a1cb)
+2021-02-26T10:28:41.8008577+07:00 0HM6Q0QEEPNM7:00000002 [INF] Sending file. Request path: '"/client-side/images/flag-spain.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-spain.jpg"' (27b0a520)
+2021-02-26T10:28:41.8026549+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("8"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8027566+07:00 0HM6Q0QEEPNMB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand3.png   (ca22a1cb)
+2021-02-26T10:28:41.8026398+07:00 0HM6Q0QEEPNM7:00000002 [INF] Request finished in 1.746ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.8030483+07:00 0HM6Q0QEEPNMC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand4.png   (ca22a1cb)
+2021-02-26T10:28:41.8030560+07:00 0HM6Q0QEEPNM9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand5.png   (ca22a1cb)
+2021-02-26T10:28:41.8033618+07:00 0HM6Q0QEEPNMB:00000002 [INF] Sending file. Request path: '"/client-side/images/brand3.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand3.png"' (27b0a520)
+2021-02-26T10:28:41.8034088+07:00 0HM6Q0QEEPNMB:00000002 [INF] Request finished in 0.6783ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8046251+07:00 0HM6Q0QEEPNM9:00000002 [INF] Sending file. Request path: '"/client-side/images/brand5.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand5.png"' (27b0a520)
+2021-02-26T10:28:41.8047176+07:00 0HM6Q0QEEPNM9:00000002 [INF] Request finished in 1.6501ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8051217+07:00 0HM6Q0QEEPNMC:00000002 [INF] Sending file. Request path: '"/client-side/images/brand4.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand4.png"' (27b0a520)
+2021-02-26T10:28:41.8051903+07:00 0HM6Q0QEEPNMC:00000002 [INF] Request finished in 2.1446ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8075831+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8154784+07:00 0HM6Q0QEEPNMA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand6.png   (ca22a1cb)
+2021-02-26T10:28:41.8164131+07:00 0HM6Q0QEEPNMA:00000002 [INF] Sending file. Request path: '"/client-side/images/brand6.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand6.png"' (27b0a520)
+2021-02-26T10:28:41.8164749+07:00 0HM6Q0QEEPNMA:00000002 [INF] Request finished in 1.1428ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8165915+07:00 0HM6Q0QEEPNMD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand11.png   (ca22a1cb)
+2021-02-26T10:28:41.8167619+07:00 0HM6Q0QEEPNM8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/bootstrap.min.js   (ca22a1cb)
+2021-02-26T10:28:41.8168529+07:00 0HM6Q0QEEPNMN:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/jquery-ui.js   (ca22a1cb)
+2021-02-26T10:28:41.8169041+07:00 0HM6Q0QEEPNM7:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/countdown.js   (ca22a1cb)
+2021-02-26T10:28:41.8172856+07:00 0HM6Q0QEEPNMF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand9.png   (ca22a1cb)
+2021-02-26T10:28:41.8173311+07:00 0HM6Q0QEEPNMG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/revolution-slider.js   (ca22a1cb)
+2021-02-26T10:28:41.8174108+07:00 0HM6Q0QEEPNMC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/footer-logo.png   (ca22a1cb)
+2021-02-26T10:28:41.8174658+07:00 0HM6Q0QEEPNMB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand7.png   (ca22a1cb)
+2021-02-26T10:28:41.8174734+07:00 0HM6Q0QEEPNMH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand8.png   (ca22a1cb)
+2021-02-26T10:28:41.8175591+07:00 0HM6Q0QEEPNM9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/testimonials-img4.jpg   (ca22a1cb)
+2021-02-26T10:28:41.8176222+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8177360+07:00 0HM6Q0QEEPNMD:00000003 [INF] Sending file. Request path: '"/client-side/images/brand11.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand11.png"' (27b0a520)
+2021-02-26T10:28:41.8177800+07:00 0HM6Q0QEEPNMD:00000003 [INF] Request finished in 1.1966ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8178159+07:00 0HM6Q0QEEPNMO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/testimonials-img3.jpg   (ca22a1cb)
+2021-02-26T10:28:41.8178629+07:00 0HM6Q0QEEPNM7:00000003 [INF] Sending file. Request path: '"/client-side/js/countdown.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\countdown.js"' (27b0a520)
+2021-02-26T10:28:41.8180275+07:00 0HM6Q0QEEPNM8:00000002 [INF] Sending file. Request path: '"/client-side/js/bootstrap.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\bootstrap.min.js"' (27b0a520)
+2021-02-26T10:28:41.8180474+07:00 0HM6Q0QEEPNM9:00000003 [INF] Sending file. Request path: '"/client-side/images/testimonials-img4.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\testimonials-img4.jpg"' (27b0a520)
+2021-02-26T10:28:41.8180693+07:00 0HM6Q0QEEPNME:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/testimonials-img1.jpg   (ca22a1cb)
+2021-02-26T10:28:41.8180772+07:00 0HM6Q0QEEPNM8:00000002 [INF] Request finished in 1.4255ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8180846+07:00 0HM6Q0QEEPNM9:00000003 [INF] Request finished in 0.5369ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.8181355+07:00 0HM6Q0QEEPNMK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/mobile-menu.js   (ca22a1cb)
+2021-02-26T10:28:41.8181618+07:00 0HM6Q0QEEPNMF:00000002 [INF] Sending file. Request path: '"/client-side/images/brand9.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand9.png"' (27b0a520)
+2021-02-26T10:28:41.8182032+07:00 0HM6Q0QEEPNMF:00000002 [INF] Request finished in 1.0875ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8182845+07:00 0HM6Q0QEEPNMC:00000003 [INF] Sending file. Request path: '"/client-side/images/footer-logo.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\footer-logo.png"' (27b0a520)
+2021-02-26T10:28:41.8183186+07:00 0HM6Q0QEEPNMH:00000002 [INF] Sending file. Request path: '"/client-side/images/brand8.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand8.png"' (27b0a520)
+2021-02-26T10:28:41.8183352+07:00 0HM6Q0QEEPNMC:00000003 [INF] Request finished in 0.9324ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8183573+07:00 0HM6Q0QEEPNMH:00000002 [INF] Request finished in 0.9319ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8184016+07:00 0HM6Q0QEEPNMA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/discover.png   (ca22a1cb)
+2021-02-26T10:28:41.8184641+07:00 0HM6Q0QEEPNMO:00000001 [INF] Sending file. Request path: '"/client-side/images/testimonials-img3.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\testimonials-img3.jpg"' (27b0a520)
+2021-02-26T10:28:41.8184605+07:00 0HM6Q0QEEPNMB:00000003 [INF] Sending file. Request path: '"/client-side/images/brand7.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand7.png"' (27b0a520)
+2021-02-26T10:28:41.8185048+07:00 0HM6Q0QEEPNMO:00000001 [INF] Request finished in 0.7186ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.8185077+07:00 0HM6Q0QEEPNMB:00000003 [INF] Request finished in 1.0723ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8185478+07:00 0HM6Q0QEEPNME:00000002 [INF] Sending file. Request path: '"/client-side/images/testimonials-img1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\testimonials-img1.jpg"' (27b0a520)
+2021-02-26T10:28:41.8185850+07:00 0HM6Q0QEEPNME:00000002 [INF] Request finished in 0.5271ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.8186476+07:00 0HM6Q0QEEPNMK:00000002 [INF] Sending file. Request path: '"/client-side/js/mobile-menu.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\mobile-menu.js"' (27b0a520)
+2021-02-26T10:28:41.8187017+07:00 0HM6Q0QEEPNMK:00000002 [INF] Request finished in 0.5913ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8188344+07:00 0HM6Q0QEEPNM7:00000003 [INF] Request finished in 1.0429ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8188815+07:00 0HM6Q0QEEPNMA:00000003 [INF] Sending file. Request path: '"/client-side/images/discover.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\discover.png"' (27b0a520)
+2021-02-26T10:28:41.8189242+07:00 0HM6Q0QEEPNMA:00000003 [INF] Request finished in 0.5604ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8190510+07:00 0HM6Q0QEEPNMN:00000002 [INF] Sending file. Request path: '"/client-side/js/jquery-ui.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\jquery-ui.js"' (27b0a520)
+2021-02-26T10:28:41.8190881+07:00 0HM6Q0QEEPNMN:00000002 [INF] Request finished in 2.2496ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8192069+07:00 0HM6Q0QEEPNMI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/visa.png   (ca22a1cb)
+2021-02-26T10:28:41.8194972+07:00 0HM6Q0QEEPNMD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/bootstrap.min.css   (ca22a1cb)
+2021-02-26T10:28:41.8195201+07:00 0HM6Q0QEEPNMG:00000002 [INF] Sending file. Request path: '"/client-side/js/revolution-slider.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\revolution-slider.js"' (27b0a520)
+2021-02-26T10:28:41.8195614+07:00 0HM6Q0QEEPNMG:00000002 [INF] Request finished in 2.2563ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8196764+07:00 0HM6Q0QEEPNMH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/testimonials-img2.jpg   (ca22a1cb)
+2021-02-26T10:28:41.8196816+07:00 0HM6Q0QEEPNM7:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/font-awesome.min.css   (ca22a1cb)
+2021-02-26T10:28:41.8197868+07:00 0HM6Q0QEEPNMF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/animate.css   (ca22a1cb)
+2021-02-26T10:28:41.8200825+07:00 0HM6Q0QEEPNMA:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/simple-line-icons.css   (ca22a1cb)
+2021-02-26T10:28:41.8200911+07:00 0HM6Q0QEEPNMI:00000002 [INF] Sending file. Request path: '"/client-side/images/visa.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\visa.png"' (27b0a520)
+2021-02-26T10:28:41.8201290+07:00 0HM6Q0QEEPNMI:00000002 [INF] Request finished in 0.9385ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8203041+07:00 0HM6Q0QEEPNM7:00000004 [INF] Sending file. Request path: '"/client-side/css/font-awesome.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\font-awesome.min.css"' (27b0a520)
+2021-02-26T10:28:41.8203486+07:00 0HM6Q0QEEPNM7:00000004 [INF] Request finished in 0.974ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8204671+07:00 0HM6Q0QEEPNM9:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/jquery.min.js   (ca22a1cb)
+2021-02-26T10:28:41.8204836+07:00 0HM6Q0QEEPNMK:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/owl.carousel.min.js   (ca22a1cb)
+2021-02-26T10:28:41.8205049+07:00 0HM6Q0QEEPNMC:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/master-card.png   (ca22a1cb)
+2021-02-26T10:28:41.8207718+07:00 0HM6Q0QEEPNMA:00000004 [INF] Sending file. Request path: '"/client-side/css/simple-line-icons.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\simple-line-icons.css"' (27b0a520)
+2021-02-26T10:28:41.8208132+07:00 0HM6Q0QEEPNMA:00000004 [INF] Request finished in 0.759ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8208879+07:00 0HM6Q0QEEPNMD:00000004 [INF] Sending file. Request path: '"/client-side/css/bootstrap.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\bootstrap.min.css"' (27b0a520)
+2021-02-26T10:28:41.8209440+07:00 0HM6Q0QEEPNMD:00000004 [INF] Request finished in 1.4423ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8210365+07:00 0HM6Q0QEEPNMC:00000004 [INF] Sending file. Request path: '"/client-side/images/master-card.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\master-card.png"' (27b0a520)
+2021-02-26T10:28:41.8210295+07:00 0HM6Q0QEEPNMF:00000003 [INF] Sending file. Request path: '"/client-side/css/animate.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\animate.css"' (27b0a520)
+2021-02-26T10:28:41.8210750+07:00 0HM6Q0QEEPNMC:00000004 [INF] Request finished in 0.5943ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8210816+07:00 0HM6Q0QEEPNMF:00000003 [INF] Request finished in 1.3055ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8212914+07:00 0HM6Q0QEEPNMK:00000003 [INF] Sending file. Request path: '"/client-side/js/owl.carousel.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\owl.carousel.min.js"' (27b0a520)
+2021-02-26T10:28:41.8213380+07:00 0HM6Q0QEEPNMK:00000003 [INF] Request finished in 0.8737ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8217029+07:00 0HM6Q0QEEPNM9:00000004 [INF] Sending file. Request path: '"/client-side/js/jquery.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\jquery.min.js"' (27b0a520)
+2021-02-26T10:28:41.8218529+07:00 0HM6Q0QEEPNM9:00000004 [INF] Request finished in 1.3772ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8218935+07:00 0HM6Q0QEEPNME:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2021-02-26T10:28:41.8223857+07:00 0HM6Q0QEEPNME:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2021-02-26T10:28:41.8224493+07:00 0HM6Q0QEEPNME:00000003 [INF] Request finished in 0.5825ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8236816+07:00 0HM6Q0QEEPNMO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/brand10.png   (ca22a1cb)
+2021-02-26T10:28:41.8239703+07:00 0HM6Q0QEEPNMC:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/main.js   (ca22a1cb)
+2021-02-26T10:28:41.8245926+07:00 0HM6Q0QEEPNMC:00000005 [INF] Sending file. Request path: '"/client-side/js/main.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\main.js"' (27b0a520)
+2021-02-26T10:28:41.8246291+07:00 0HM6Q0QEEPNMO:00000002 [INF] Sending file. Request path: '"/client-side/images/brand10.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\brand10.png"' (27b0a520)
+2021-02-26T10:28:41.8246764+07:00 0HM6Q0QEEPNMC:00000005 [INF] Request finished in 0.7088ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8247842+07:00 0HM6Q0QEEPNMO:00000002 [INF] Request finished in 3.9804ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8247951+07:00 0HM6Q0QEEPNMH:00000003 [INF] Sending file. Request path: '"/client-side/images/testimonials-img2.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\testimonials-img2.jpg"' (27b0a520)
+2021-02-26T10:28:41.8248806+07:00 0HM6Q0QEEPNMH:00000003 [INF] Request finished in 5.1977ms 200 image/jpeg (791a596a)
+2021-02-26T10:28:41.8268272+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:41.8306698+07:00 0HM6Q0QEEPNMI:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2021-02-26T10:28:41.8315780+07:00 0HM6Q0QEEPNMI:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2021-02-26T10:28:41.8316442+07:00 0HM6Q0QEEPNMI:00000003 [INF] Request finished in 1.0914ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8320937+07:00 0HM6Q0QEEPNMA:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/mustache/mustache.js   (ca22a1cb)
+2021-02-26T10:28:41.8329673+07:00 0HM6Q0QEEPNMA:00000005 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2021-02-26T10:28:41.8330496+07:00 0HM6Q0QEEPNMA:00000005 [INF] Request finished in 0.9573ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8332622+07:00 0HM6Q0QEEPNMO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/paypal.png   (ca22a1cb)
+2021-02-26T10:28:41.8339826+07:00 0HM6Q0QEEPNMO:00000003 [INF] Sending file. Request path: '"/client-side/images/paypal.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\paypal.png"' (27b0a520)
+2021-02-26T10:28:41.8341176+07:00 0HM6Q0QEEPNMO:00000003 [INF] Request finished in 0.7951ms 200 image/png (791a596a)
+2021-02-26T10:28:41.8343537+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8345145+07:00 0HM6Q0QEEPNM8:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/shared/tedu.js   (ca22a1cb)
+2021-02-26T10:28:41.8350322+07:00 0HM6Q0QEEPNM8:00000003 [INF] Sending file. Request path: '"/client-ap/shared/tedu.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\shared\tedu.js"' (27b0a520)
+2021-02-26T10:28:41.8351288+07:00 0HM6Q0QEEPNM8:00000003 [INF] Request finished in 0.6634ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8357172+07:00 0HM6Q0QEEPNME:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/controller/base/index.js   (ca22a1cb)
+2021-02-26T10:28:41.8372481+07:00 0HM6Q0QEEPNME:00000004 [INF] Sending file. Request path: '"/client-ap/controller/base/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\controller\base\index.js"' (27b0a520)
+2021-02-26T10:28:41.8374566+07:00 0HM6Q0QEEPNME:00000004 [INF] Request finished in 1.7437ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8395986+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:41.8427584+07:00 0HM6Q0QEEPNMB:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/controllers/home/index.js   (ca22a1cb)
+2021-02-26T10:28:41.8432399+07:00 0HM6Q0QEEPNM7:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/flexslider.css   (ca22a1cb)
+2021-02-26T10:28:41.8432400+07:00 0HM6Q0QEEPNMC:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcode.css   (ca22a1cb)
+2021-02-26T10:28:41.8433093+07:00 0HM6Q0QEEPNML:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/pricing-table.css   (ca22a1cb)
+2021-02-26T10:28:41.8433860+07:00 0HM6Q0QEEPNMH:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/tooltip.css   (ca22a1cb)
+2021-02-26T10:28:41.8434360+07:00 0HM6Q0QEEPNMK:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/quick_view_popup.css   (ca22a1cb)
+2021-02-26T10:28:41.8436843+07:00 0HM6Q0QEEPNMM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/featured-box.css   (ca22a1cb)
+2021-02-26T10:28:41.8437676+07:00 0HM6Q0QEEPNMI:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/owl.carousel.css   (ca22a1cb)
+2021-02-26T10:28:41.8438585+07:00 0HM6Q0QEEPNMO:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/post.css   (ca22a1cb)
+2021-02-26T10:28:41.8439276+07:00 0HM6Q0QEEPNMA:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/responsive.css   (ca22a1cb)
+2021-02-26T10:28:41.8439420+07:00 0HM6Q0QEEPNMF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/shortcodes.css   (ca22a1cb)
+2021-02-26T10:28:41.8439542+07:00 0HM6Q0QEEPNMB:00000004 [INF] Sending file. Request path: '"/client-side/js/controllers/home/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\controllers\home\index.js"' (27b0a520)
+2021-02-26T10:28:41.8439994+07:00 0HM6Q0QEEPNMB:00000004 [INF] Request finished in 1.3235ms 200 application/javascript (791a596a)
+2021-02-26T10:28:41.8440288+07:00 0HM6Q0QEEPNMD:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/owl.transitions.css   (ca22a1cb)
+2021-02-26T10:28:41.8440809+07:00 0HM6Q0QEEPNM7:00000005 [INF] Sending file. Request path: '"/client-side/css/flexslider.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\flexslider.css"' (27b0a520)
+2021-02-26T10:28:41.8441127+07:00 0HM6Q0QEEPNM7:00000005 [INF] Request finished in 0.9233ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8441331+07:00 0HM6Q0QEEPNML:00000002 [INF] Sending file. Request path: '"/client-side/css/shortcodes/pricing-table.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\pricing-table.css"' (27b0a520)
+2021-02-26T10:28:41.8441834+07:00 0HM6Q0QEEPNML:00000002 [INF] Request finished in 0.8712ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8441819+07:00 0HM6Q0QEEPNME:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/blog.css   (ca22a1cb)
+2021-02-26T10:28:41.8442180+07:00 0HM6Q0QEEPNMK:00000004 [INF] Sending file. Request path: '"/client-side/css/quick_view_popup.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\quick_view_popup.css"' (27b0a520)
+2021-02-26T10:28:41.8442541+07:00 0HM6Q0QEEPNMK:00000004 [INF] Request finished in 0.8319ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8443321+07:00 0HM6Q0QEEPNMC:00000006 [INF] Sending file. Request path: '"/client-side/css/shortcode.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcode.css"' (27b0a520)
+2021-02-26T10:28:41.8443644+07:00 0HM6Q0QEEPNMC:00000006 [INF] Request finished in 1.1748ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8444768+07:00 0HM6Q0QEEPNMA:00000006 [INF] Sending file. Request path: '"/client-side/css/responsive.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\responsive.css"' (27b0a520)
+2021-02-26T10:28:41.8444994+07:00 0HM6Q0QEEPNMD:00000005 [INF] Sending file. Request path: '"/client-side/css/owl.transitions.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\owl.transitions.css"' (27b0a520)
+2021-02-26T10:28:41.8445194+07:00 0HM6Q0QEEPNMA:00000006 [INF] Request finished in 0.6019ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8445221+07:00 0HM6Q0QEEPNMO:00000004 [INF] Sending file. Request path: '"/client-side/css/shortcodes/post.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\post.css"' (27b0a520)
+2021-02-26T10:28:41.8445525+07:00 0HM6Q0QEEPNMD:00000005 [INF] Request finished in 0.5166ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8445527+07:00 0HM6Q0QEEPNMI:00000004 [INF] Sending file. Request path: '"/client-side/css/owl.carousel.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\owl.carousel.css"' (27b0a520)
+2021-02-26T10:28:41.8445583+07:00 0HM6Q0QEEPNMO:00000004 [INF] Request finished in 0.7676ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8445923+07:00 0HM6Q0QEEPNME:00000005 [INF] Sending file. Request path: '"/client-side/css/blog.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\blog.css"' (27b0a520)
+2021-02-26T10:28:41.8446309+07:00 0HM6Q0QEEPNMI:00000004 [INF] Request finished in 0.9581ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8446343+07:00 0HM6Q0QEEPNME:00000005 [INF] Request finished in 0.4562ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8447116+07:00 0HM6Q0QEEPNMF:00000004 [INF] Sending file. Request path: '"/client-side/css/shortcodes/shortcodes.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\shortcodes.css"' (27b0a520)
+2021-02-26T10:28:41.8447594+07:00 0HM6Q0QEEPNMF:00000004 [INF] Request finished in 0.8161ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8451182+07:00 0HM6Q0QEEPNMM:00000002 [INF] Sending file. Request path: '"/client-side/css/shortcodes/featured-box.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\featured-box.css"' (27b0a520)
+2021-02-26T10:28:41.8451733+07:00 0HM6Q0QEEPNMM:00000002 [INF] Request finished in 1.5046ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8453073+07:00 0HM6Q0QEEPNM8:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/style.css   (ca22a1cb)
+2021-02-26T10:28:41.8453568+07:00 0HM6Q0QEEPNMH:00000004 [INF] Sending file. Request path: '"/client-side/css/shortcodes/tooltip.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\tooltip.css"' (27b0a520)
+2021-02-26T10:28:41.8458366+07:00 0HM6Q0QEEPNMB:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/jquery-ui.css   (ca22a1cb)
+2021-02-26T10:28:41.8453972+07:00 0HM6Q0QEEPNMH:00000004 [INF] Request finished in 2.0371ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8474726+07:00 0HM6Q0QEEPNMB:00000005 [INF] Sending file. Request path: '"/client-side/css/jquery-ui.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\jquery-ui.css"' (27b0a520)
+2021-02-26T10:28:41.8477131+07:00 0HM6Q0QEEPNMB:00000005 [INF] Request finished in 1.9566ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8477901+07:00 0HM6Q0QEEPNM8:00000004 [INF] Sending file. Request path: '"/client-side/css/style.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\style.css"' (27b0a520)
+2021-02-26T10:28:41.8478526+07:00 0HM6Q0QEEPNM8:00000004 [INF] Request finished in 2.5549ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8501965+07:00 0HM6Q0QEEPNMK:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/pe-icon-7-stroke.min.css   (ca22a1cb)
+2021-02-26T10:28:41.8506947+07:00 0HM6Q0QEEPNMC:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/revolution-slider.css   (ca22a1cb)
+2021-02-26T10:28:41.8520300+07:00 0HM6Q0QEEPNMK:00000005 [INF] Sending file. Request path: '"/client-side/css/pe-icon-7-stroke.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\pe-icon-7-stroke.min.css"' (27b0a520)
+2021-02-26T10:28:41.8520925+07:00 0HM6Q0QEEPNMC:00000007 [INF] Sending file. Request path: '"/client-side/css/revolution-slider.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\revolution-slider.css"' (27b0a520)
+2021-02-26T10:28:41.8521219+07:00 0HM6Q0QEEPNMK:00000005 [INF] Request finished in 1.9966ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8521363+07:00 0HM6Q0QEEPNMC:00000007 [INF] Request finished in 1.4717ms 200 text/css (791a596a)
+2021-02-26T10:28:41.8530829+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8598367+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:28:41.8601258+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 69.3328ms. (50a9e262)
+2021-02-26T10:28:41.8605409+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:28:41.8631629+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8641510+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8664214+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8675258+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8697971+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8706690+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:41.8749067+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed ViewResult - view "Index" executed in 14.3707ms. (f66409e9)
+2021-02-26T10:28:41.8752326+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 84.9942ms (afa2e885)
+2021-02-26T10:28:41.8757904+07:00 0HM6Q0QEEPNMJ:00000001 [INF] Request finished in 87.9815ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:28:41.9814805+07:00 0HM6Q0QEEPNMO:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/bg_text_des.png   (ca22a1cb)
+2021-02-26T10:28:41.9820106+07:00 0HM6Q0QEEPNMO:00000005 [INF] Sending file. Request path: '"/client-side/images/bg_text_des.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\bg_text_des.png"' (27b0a520)
+2021-02-26T10:28:41.9820739+07:00 0HM6Q0QEEPNMO:00000005 [INF] Request finished in 0.6385ms 200 image/png (791a596a)
+2021-02-26T10:28:42.1290237+07:00 0HM6Q0QEEPNMM:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-26T10:28:42.1294814+07:00 0HM6Q0QEEPNMM:00000003 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:28:42.1296893+07:00 0HM6Q0QEEPNMM:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:28:42.1299345+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:28:42.1302429+07:00 0HM6Q0QEEPNMM:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:28:42.1312033+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1316462+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1327796+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1332519+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:42.1343408+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1349347+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:28:42.1364321+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1372420+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:28:42.1373703+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 7.3725ms. (50a9e262)
+2021-02-26T10:28:42.1374524+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:28:42.1386293+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1391800+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1405756+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1410606+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1421063+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1425007+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:28:42.1434149+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed ViewResult - view "Index" executed in 5.9901ms. (f66409e9)
+2021-02-26T10:28:42.1434676+07:00 0HM6Q0QEEPNMM:00000003 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 13.7375ms (afa2e885)
+2021-02-26T10:28:42.1435636+07:00 0HM6Q0QEEPNMM:00000003 [INF] Request finished in 14.5846ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:28:42.2165536+07:00 0HM6Q0QEEPNM7:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2021-02-26T10:28:42.2165530+07:00 0HM6Q0QEEPNML:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0   (ca22a1cb)
+2021-02-26T10:28:42.2172610+07:00 0HM6Q0QEEPNML:00000003 [INF] Sending file. Request path: '"/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.woff2"' (27b0a520)
+2021-02-26T10:28:42.2173180+07:00 0HM6Q0QEEPNML:00000003 [INF] Request finished in 0.8247ms 200 font/woff2 (791a596a)
+2021-02-26T10:28:42.2175626+07:00 0HM6Q0QEEPNM7:00000006 [INF] Sending file. Request path: '"/client-side/fonts/font-awesome/fontawesome-webfont.woff2"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2"' (27b0a520)
+2021-02-26T10:28:42.2176567+07:00 0HM6Q0QEEPNM7:00000006 [INF] Request finished in 1.1541ms 200 font/woff2 (791a596a)
+2021-02-26T10:28:51.0364987+07:00 0HM6Q0QEEPNMD:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/contact.html   (ca22a1cb)
+2021-02-26T10:28:51.0370013+07:00 0HM6Q0QEEPNMD:00000006 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:28:51.0420122+07:00 0HM6Q0QEEPNMD:00000006 [INF] Route matched with "{action = \"Index\", controller = \"Contact\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.ContactController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:28:51.0427221+07:00 0HM6Q0QEEPNMD:00000006 [INF] Executing action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:28:51.0428660+07:00 0HM6Q0QEEPNMD:00000006 [INF] Executed action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0993ms. (50a9e262)
+2021-02-26T10:28:51.0444121+07:00 0HM6Q0QEEPNMD:00000006 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:28:51.0498715+07:00 0HM6Q0QEEPNMD:00000006 [INF] Executed action "ShopApplication.Controllers.ContactController.Index (ShopApplication)" in 7.7719ms (afa2e885)
+2021-02-26T10:28:51.0735062+07:00 0HM6Q0QEEPNMD:00000006 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_Contact_Index.ExecuteAsync() in E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\Views\Contact\Index.cshtml:line 14
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-02-26T10:28:51.1000457+07:00 0HM6Q0QEEPNMD:00000006 [INF] Request finished in 63.5254ms 500 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:29:59.0155592+07:00 0HM6Q0R5M0QID:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-26T10:29:59.0641120+07:00 0HM6Q0R5M0QID:00000001 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:29:59.2088790+07:00 0HM6Q0R5M0QID:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:29:59.2187458+07:00 0HM6Q0R5M0QID:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:29:59.2223898+07:00 0HM6Q0R5M0QID:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:29:59.2531836+07:00 0HM6Q0R5M0QID:00000001 [WRN] The Include operation for navigation '"[c].Products"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2021-02-26T10:29:59.2950012+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:29:59.3174801+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("11"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:29:59.3668019+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:29:59.3822944+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:29:59.4195940+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:29:59.4259685+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:29:59.4543165+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:29:59.4715413+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:29:59.4782096+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 256.9432ms. (50a9e262)
+2021-02-26T10:29:59.4931202+07:00 0HM6Q0R5M0QID:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:29:59.6014150+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6057761+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6419654+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6424243+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6502125+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6506496+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:29:59.6932297+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed ViewResult - view "Index" executed in 209.1311ms. (f66409e9)
+2021-02-26T10:29:59.6988278+07:00 0HM6Q0R5M0QID:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 489.4602ms (afa2e885)
+2021-02-26T10:29:59.7108460+07:00 0HM6Q0R5M0QID:00000001 [INF] Request finished in 699.1913ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:30:00.0155196+07:00 0HM6Q0R5M0QID:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/   (ca22a1cb)
+2021-02-26T10:30:00.0166329+07:00 0HM6Q0R5M0QID:00000002 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:00.0172611+07:00 0HM6Q0R5M0QID:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:30:00.0181210+07:00 0HM6Q0R5M0QID:00000002 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:30:00.0187640+07:00 0HM6Q0R5M0QID:00000002 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:30:00.0204354+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0210773+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0227058+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0234170+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:30:00.0253782+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0262110+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:30:00.0275703+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0285273+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:30:00.0287756+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 10.479ms. (50a9e262)
+2021-02-26T10:30:00.0290631+07:00 0HM6Q0R5M0QID:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:30:00.0298694+07:00 0HM6Q0R5M0QIE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/?w=190   (ca22a1cb)
+2021-02-26T10:30:00.0303469+07:00 0HM6Q0R5M0QIE:00000001 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:00.0305716+07:00 0HM6Q0R5M0QIE:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.HomeController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:30:00.0308529+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executing action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:30:00.0311572+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0312378+07:00 0HM6Q0R5M0QIE:00000001 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:30:00.0317148+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0337126+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0344684+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0358002+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c].[Id], [c].[Name], [c].[Description], [c].[ParentId], [c].[HomeOrder], [c].[Image], [c].[HomeFlag], [c].[DateCreated], [c].[DateModified], [c].[SortOrder], [c].[Status], [c].[SeoPageTitle], [c].[SeoAlias], [c].[SeoKeywords], [c].[SeoDescription]
+FROM [ProductCategories] AS [c]
+WHERE [c].[HomeFlag] = 1
+ORDER BY [c].[HomeOrder], [c].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0360741+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0362928+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[HomeOrder], [t].[Id], [c.Products].[Id] AS [Id0], [c.Products].[Name], [c.Products].[CategoryId], [c.Products].[Image], [c.Products].[Price], [c.Products].[PromotionPrice], [c.Products].[OriginalPrice], [c.Products].[Description], [c.Products].[Content], [c.Products].[HomeFlag], [c.Products].[HotFlag], [c.Products].[ViewCount], [c.Products].[Tags], [c.Products].[Unit], [c.Products].[SeoPageTitle], [c.Products].[SeoAlias], [c.Products].[SeoKeywords], [c.Products].[SeoDescription], [c.Products].[DateCreated], [c.Products].[DateModified], [c.Products].[Status]
+FROM [Products] AS [c.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [c0].[HomeOrder], [c0].[Id]
+    FROM [ProductCategories] AS [c0]
+    WHERE [c0].[HomeFlag] = 1
+    ORDER BY [c0].[HomeOrder], [c0].[Id]
+) AS [t] ON [c.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[HomeOrder], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0365774+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0376332+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE ([x].[Status] = 1) AND ([x].[HotFlag] = 1)
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0381981+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE ([x0].[Status] = 1) AND ([x0].[HotFlag] = 1)
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:30:00.0384577+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed ViewResult - view "Index" executed in 9.471ms. (f66409e9)
+2021-02-26T10:30:00.0386256+07:00 0HM6Q0R5M0QID:00000002 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 21.3057ms (afa2e885)
+2021-02-26T10:30:00.0390150+07:00 0HM6Q0R5M0QID:00000002 [INF] Request finished in 23.5786ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:30:00.0396715+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[CategoryId], [x].[Image], [x].[Price], [x].[PromotionPrice], [x].[OriginalPrice], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[Unit], CASE
+    WHEN [x].[CategoryId] IS NOT NULL
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END, [x.ProductCategory].[Name] AS [Name0], [x.ProductCategory].[Description] AS [Description0], [x.ProductCategory].[ParentId], [x.ProductCategory].[HomeOrder], [x.ProductCategory].[Image] AS [Image0], [x.ProductCategory].[HomeFlag] AS [HomeFlag0], [x.ProductCategory].[DateCreated], [x.ProductCategory].[DateModified], [x.ProductCategory].[SortOrder], [x.ProductCategory].[Status], [x.ProductCategory].[SeoPageTitle], [x.ProductCategory].[SeoAlias], [x.ProductCategory].[SeoKeywords], [x.ProductCategory].[SeoDescription], [x].[SeoPageTitle] AS [SeoPageTitle0], [x].[SeoAlias] AS [SeoAlias0], [x].[SeoKeywords] AS [SeoKeywords0], [x].[SeoDescription] AS [SeoDescription0], [x].[DateCreated] AS [DateCreated0], [x].[DateModified] AS [DateModified0], [x].[Status] AS [Status0], [x.ProductCategory].[Id]
+FROM [Products] AS [x]
+INNER JOIN [ProductCategories] AS [x.ProductCategory] ON [x].[CategoryId] = [x.ProductCategory].[Id]
+WHERE [x].[Status] = 1
+ORDER BY [DateCreated0] DESC, [x].[Id], [x.ProductCategory].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0403761+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[DateCreated], [t].[Id], [t].[Id0], [x.ProductCategory.Products].[Id] AS [Id1], [x.ProductCategory.Products].[Name], [x.ProductCategory.Products].[CategoryId], [x.ProductCategory.Products].[Image], [x.ProductCategory.Products].[Price], [x.ProductCategory.Products].[PromotionPrice], [x.ProductCategory.Products].[OriginalPrice], [x.ProductCategory.Products].[Description], [x.ProductCategory.Products].[Content], [x.ProductCategory.Products].[HomeFlag], [x.ProductCategory.Products].[HotFlag], [x.ProductCategory.Products].[ViewCount], [x.ProductCategory.Products].[Tags], [x.ProductCategory.Products].[Unit], [x.ProductCategory.Products].[SeoPageTitle], [x.ProductCategory.Products].[SeoAlias], [x.ProductCategory.Products].[SeoKeywords], [x.ProductCategory.Products].[SeoDescription], [x.ProductCategory.Products].[DateCreated] AS [DateCreated0], [x.ProductCategory.Products].[DateModified], [x.ProductCategory.Products].[Status]
+FROM [Products] AS [x.ProductCategory.Products]
+INNER JOIN (
+    SELECT TOP(@__p_0) [x0].[DateCreated], [x0].[Id], [x.ProductCategory0].[Id] AS [Id0]
+    FROM [Products] AS [x0]
+    INNER JOIN [ProductCategories] AS [x.ProductCategory0] ON [x0].[CategoryId] = [x.ProductCategory0].[Id]
+    WHERE [x0].[Status] = 1
+    ORDER BY [x0].[DateCreated] DESC, [x0].[Id], [x.ProductCategory0].[Id]
+) AS [t] ON [x.ProductCategory.Products].[CategoryId] = [t].[Id0]
+ORDER BY [t].[DateCreated] DESC, [t].[Id], [t].[Id0]" (0723d8ff)
+2021-02-26T10:30:00.0420854+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [x].[Id], [x].[Name], [x].[Image], [x].[Description], [x].[Content], [x].[HomeFlag], [x].[HotFlag], [x].[ViewCount], [x].[Tags], [x].[DateCreated], [x].[DateModified], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [Blogs] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[DateCreated] DESC, [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0430793+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__groupAlias_0='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[Image], [x].[Url], [x].[DisplayOrder], [x].[Status], [x].[Content], [x].[GroupAlias]
+FROM [Slides] AS [x]
+WHERE ([x].[Status] = 1) AND ([x].[GroupAlias] = @__groupAlias_0)" (0723d8ff)
+2021-02-26T10:30:00.0432038+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed action method "ShopApplication.Controllers.HomeController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 12.289ms. (50a9e262)
+2021-02-26T10:30:00.0432997+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:30:00.0445802+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0451366+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0465620+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0470912+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0484658+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0491092+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:00.0509544+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed ViewResult - view "Index" executed in 7.6352ms. (f66409e9)
+2021-02-26T10:30:00.0510530+07:00 0HM6Q0R5M0QIE:00000001 [INF] Executed action "ShopApplication.Controllers.HomeController.Index (ShopApplication)" in 20.423ms (afa2e885)
+2021-02-26T10:30:00.0512093+07:00 0HM6Q0R5M0QIE:00000001 [INF] Request finished in 21.3857ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:30:02.6170603+07:00 0HM6Q0R5M0QID:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/contact.html   (ca22a1cb)
+2021-02-26T10:30:02.6188746+07:00 0HM6Q0R5M0QID:00000003 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:02.6237392+07:00 0HM6Q0R5M0QID:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Contact\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.ContactController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:30:02.6244912+07:00 0HM6Q0R5M0QID:00000003 [INF] Executing action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:30:02.6263627+07:00 0HM6Q0R5M0QID:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:30:02.6382049+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[Address], [x].[Email], [x].[Lat], [x].[Lng], [x].[Name], [x].[Other], [x].[Phone], [x].[Status], [x].[Website]
+FROM [ContactDetails] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2021-02-26T10:30:02.6815445+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 56.9699ms. (50a9e262)
+2021-02-26T10:30:02.6831583+07:00 0HM6Q0R5M0QID:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:30:02.7084537+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7089400+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7110136+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7114699+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7128501+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7132464+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:02.7328723+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed ViewResult - view "Index" executed in 51.2008ms. (f66409e9)
+2021-02-26T10:30:02.7329591+07:00 0HM6Q0R5M0QID:00000003 [INF] Executed action "ShopApplication.Controllers.ContactController.Index (ShopApplication)" in 109.1572ms (afa2e885)
+2021-02-26T10:30:02.7331120+07:00 0HM6Q0R5M0QID:00000003 [INF] Request finished in 116.0907ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:30:02.7568098+07:00 0HM6Q0R5M0QIE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/controller/contact/index.js?v=DWNr_o3Co2Y4y84pZcHQhNSUbxT5vvw45J4LMZHPEQc   (ca22a1cb)
+2021-02-26T10:30:02.7625489+07:00 0HM6Q0R5M0QIE:00000002 [INF] Sending file. Request path: '"/client-ap/controller/contact/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\controller\contact\index.js"' (27b0a520)
+2021-02-26T10:30:02.7626422+07:00 0HM6Q0R5M0QIE:00000002 [INF] Request finished in 5.874ms 200 application/javascript (791a596a)
+2021-02-26T10:30:09.5669314+07:00 0HM6Q0R5M0QID:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/bootstrap.min.css.map   (ca22a1cb)
+2021-02-26T10:30:09.5674305+07:00 0HM6Q0R5M0QID:00000004 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:09.5692705+07:00 0HM6Q0R5M0QID:00000004 [INF] Request finished in 2.3127ms 404  (791a596a)
+2021-02-26T10:30:58.2034982+07:00 0HM6Q0R5M0QIE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/contact.html   (ca22a1cb)
+2021-02-26T10:30:58.2039394+07:00 0HM6Q0R5M0QIE:00000003 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:58.2041827+07:00 0HM6Q0R5M0QIE:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Contact\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "ShopApplication.Controllers.ContactController" ("ShopApplication"). (122b2fdf)
+2021-02-26T10:30:58.2046365+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executing action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)" - Validation state: Valid (dad538d7)
+2021-02-26T10:30:58.2049581+07:00 0HM6Q0R5M0QIE:00000003 [INF] Entity Framework Core "2.1.14-servicing-32113" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=ShopApplication.Data.EF " (9958f5bb)
+2021-02-26T10:30:58.2065709+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[Address], [x].[Email], [x].[Lat], [x].[Lng], [x].[Name], [x].[Other], [x].[Phone], [x].[Status], [x].[Website]
+FROM [ContactDetails] AS [x]
+WHERE [x].[Id] = @__id_0" (0723d8ff)
+2021-02-26T10:30:58.2074049+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed action method "ShopApplication.Controllers.ContactController.Index (ShopApplication)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.7065ms. (50a9e262)
+2021-02-26T10:30:58.2074785+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-02-26T10:30:58.2101090+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2124072+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2137752+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2142819+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2153334+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[Name], [x].[Description], [x].[ParentId], [x].[HomeOrder], [x].[Image], [x].[HomeFlag], [x].[DateCreated], [x].[DateModified], [x].[SortOrder], [x].[Status], [x].[SeoPageTitle], [x].[SeoAlias], [x].[SeoKeywords], [x].[SeoDescription]
+FROM [ProductCategories] AS [x]
+ORDER BY [x].[ParentId], [x].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2157446+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[ParentId], [t].[Id], [x.Products].[Id] AS [Id0], [x.Products].[Name], [x.Products].[CategoryId], [x.Products].[Image], [x.Products].[Price], [x.Products].[PromotionPrice], [x.Products].[OriginalPrice], [x.Products].[Description], [x.Products].[Content], [x.Products].[HomeFlag], [x.Products].[HotFlag], [x.Products].[ViewCount], [x.Products].[Tags], [x.Products].[Unit], [x.Products].[SeoPageTitle], [x.Products].[SeoAlias], [x.Products].[SeoKeywords], [x.Products].[SeoDescription], [x.Products].[DateCreated], [x.Products].[DateModified], [x.Products].[Status]
+FROM [Products] AS [x.Products]
+INNER JOIN (
+    SELECT [x0].[ParentId], [x0].[Id]
+    FROM [ProductCategories] AS [x0]
+) AS [t] ON [x.Products].[CategoryId] = [t].[Id]
+ORDER BY [t].[ParentId], [t].[Id]" (0723d8ff)
+2021-02-26T10:30:58.2166658+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed ViewResult - view "Index" executed in 9.1903ms. (f66409e9)
+2021-02-26T10:30:58.2167385+07:00 0HM6Q0R5M0QIE:00000003 [INF] Executed action "ShopApplication.Controllers.ContactController.Index (ShopApplication)" in 12.5224ms (afa2e885)
+2021-02-26T10:30:58.2168550+07:00 0HM6Q0R5M0QIE:00000003 [INF] Request finished in 13.3865ms 200 text/html; charset=utf-8 (791a596a)
+2021-02-26T10:30:58.2348528+07:00 0HM6Q0R5M0QID:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/style.css   (ca22a1cb)
+2021-02-26T10:30:58.2348527+07:00 0HM6Q0R5M0QIE:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-default.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2403799+07:00 0HM6Q0R5M0QID:00000005 [INF] Sending file. Request path: '"/client-side/style.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\style.css"' (27b0a520)
+2021-02-26T10:30:58.2403802+07:00 0HM6Q0R5M0QIE:00000004 [INF] Sending file. Request path: '"/client-side/images/flag-default.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-default.jpg"' (27b0a520)
+2021-02-26T10:30:58.2405050+07:00 0HM6Q0R5M0QID:00000005 [INF] Request finished in 5.7032ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2405059+07:00 0HM6Q0R5M0QIE:00000004 [INF] Request finished in 5.7033ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2406153+07:00 0HM6Q0R5M0QID:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/jquery.min.js   (ca22a1cb)
+2021-02-26T10:30:58.2428695+07:00 0HM6Q0R5M0QID:00000006 [INF] Sending file. Request path: '"/client-side/js/jquery.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\jquery.min.js"' (27b0a520)
+2021-02-26T10:30:58.2430305+07:00 0HM6Q0R5M0QID:00000006 [INF] Request finished in 2.3454ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2434845+07:00 0HM6Q0R5M0QIE:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/mobile-menu.js   (ca22a1cb)
+2021-02-26T10:30:58.2439788+07:00 0HM6Q0R5M0QIF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/owl.carousel.min.js   (ca22a1cb)
+2021-02-26T10:30:58.2440896+07:00 0HM6Q0R5M0QIE:00000005 [INF] Sending file. Request path: '"/client-side/js/mobile-menu.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\mobile-menu.js"' (27b0a520)
+2021-02-26T10:30:58.2441384+07:00 0HM6Q0R5M0QIE:00000005 [INF] Request finished in 0.6846ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2441926+07:00 0HM6Q0R5M0QIH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/jquery-ui.js   (ca22a1cb)
+2021-02-26T10:30:58.2446196+07:00 0HM6Q0R5M0QIF:00000001 [INF] Sending file. Request path: '"/client-side/js/owl.carousel.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\owl.carousel.min.js"' (27b0a520)
+2021-02-26T10:30:58.2446171+07:00 0HM6Q0R5M0QIG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/bootstrap.min.js   (ca22a1cb)
+2021-02-26T10:30:58.2446838+07:00 0HM6Q0R5M0QIF:00000001 [INF] Request finished in 0.7837ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2451038+07:00 0HM6Q0R5M0QIH:00000001 [INF] Sending file. Request path: '"/client-side/js/jquery-ui.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\jquery-ui.js"' (27b0a520)
+2021-02-26T10:30:58.2451939+07:00 0HM6Q0R5M0QIH:00000001 [INF] Request finished in 1.0098ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2452504+07:00 0HM6Q0R5M0QIG:00000001 [INF] Sending file. Request path: '"/client-side/js/bootstrap.min.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\bootstrap.min.js"' (27b0a520)
+2021-02-26T10:30:58.2453182+07:00 0HM6Q0R5M0QIG:00000001 [INF] Request finished in 0.9549ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2498151+07:00 0HM6Q0R5M0QIF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/main.js   (ca22a1cb)
+2021-02-26T10:30:58.2498592+07:00 0HM6Q0R5M0QIE:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/countdown.js   (ca22a1cb)
+2021-02-26T10:30:58.2499337+07:00 0HM6Q0R5M0QIG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/js/revolution-slider.js   (ca22a1cb)
+2021-02-26T10:30:58.2505076+07:00 0HM6Q0R5M0QIE:00000006 [INF] Sending file. Request path: '"/client-side/js/countdown.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\countdown.js"' (27b0a520)
+2021-02-26T10:30:58.2505660+07:00 0HM6Q0R5M0QIE:00000006 [INF] Request finished in 0.8244ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2506802+07:00 0HM6Q0R5M0QIF:00000002 [INF] Sending file. Request path: '"/client-side/js/main.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\main.js"' (27b0a520)
+2021-02-26T10:30:58.2507299+07:00 0HM6Q0R5M0QIF:00000002 [INF] Request finished in 0.9922ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2517022+07:00 0HM6Q0R5M0QIG:00000002 [INF] Sending file. Request path: '"/client-side/js/revolution-slider.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\js\revolution-slider.js"' (27b0a520)
+2021-02-26T10:30:58.2517966+07:00 0HM6Q0R5M0QIG:00000002 [INF] Request finished in 1.925ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2548559+07:00 0HM6Q0R5M0QIE:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/mustache/mustache.js   (ca22a1cb)
+2021-02-26T10:30:58.2548725+07:00 0HM6Q0R5M0QIF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/shared/tedu.js   (ca22a1cb)
+2021-02-26T10:30:58.2548517+07:00 0HM6Q0R5M0QIH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2021-02-26T10:30:58.2548937+07:00 0HM6Q0R5M0QID:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44385/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2021-02-26T10:30:58.2554019+07:00 0HM6Q0R5M0QIF:00000003 [INF] Sending file. Request path: '"/client-ap/shared/tedu.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\shared\tedu.js"' (27b0a520)
+2021-02-26T10:30:58.2554498+07:00 0HM6Q0R5M0QIF:00000003 [INF] Request finished in 0.5829ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2554684+07:00 0HM6Q0R5M0QII:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/controller/base/index.js   (ca22a1cb)
+2021-02-26T10:30:58.2554076+07:00 0HM6Q0R5M0QIE:00000007 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2021-02-26T10:30:58.2555218+07:00 0HM6Q0R5M0QIE:00000007 [INF] Request finished in 0.6916ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2556744+07:00 0HM6Q0R5M0QIH:00000002 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2021-02-26T10:30:58.2557424+07:00 0HM6Q0R5M0QIH:00000002 [INF] Request finished in 0.9581ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2557525+07:00 0HM6Q0R5M0QID:00000007 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2021-02-26T10:30:58.2557898+07:00 0HM6Q0R5M0QID:00000007 [INF] Request finished in 0.9592ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2558407+07:00 0HM6Q0R5M0QII:00000001 [INF] Sending file. Request path: '"/client-ap/controller/base/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\controller\base\index.js"' (27b0a520)
+2021-02-26T10:30:58.2558737+07:00 0HM6Q0R5M0QII:00000001 [INF] Request finished in 0.4214ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2568372+07:00 0HM6Q0R5M0QIF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-ap/controller/contact/index.js?v=DWNr_o3Co2Y4y84pZcHQhNSUbxT5vvw45J4LMZHPEQc   (ca22a1cb)
+2021-02-26T10:30:58.2576638+07:00 0HM6Q0R5M0QIF:00000004 [INF] Sending file. Request path: '"/client-ap/controller/contact/index.js"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-ap\controller\contact\index.js"' (27b0a520)
+2021-02-26T10:30:58.2576638+07:00 0HM6Q0R5M0QID:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-english.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2577394+07:00 0HM6Q0R5M0QIF:00000004 [INF] Request finished in 0.9539ms 200 application/javascript (791a596a)
+2021-02-26T10:30:58.2583010+07:00 0HM6Q0R5M0QII:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-brazil.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2584609+07:00 0HM6Q0R5M0QIF:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-spain.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2588942+07:00 0HM6Q0R5M0QII:00000002 [INF] Sending file. Request path: '"/client-side/images/flag-brazil.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-brazil.jpg"' (27b0a520)
+2021-02-26T10:30:58.2589245+07:00 0HM6Q0R5M0QIF:00000005 [INF] Sending file. Request path: '"/client-side/images/flag-spain.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-spain.jpg"' (27b0a520)
+2021-02-26T10:30:58.2589544+07:00 0HM6Q0R5M0QII:00000002 [INF] Request finished in 0.665ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2589634+07:00 0HM6Q0R5M0QIF:00000005 [INF] Request finished in 0.5143ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2592812+07:00 0HM6Q0R5M0QIE:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-chile.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2592233+07:00 0HM6Q0R5M0QID:00000008 [INF] Sending file. Request path: '"/client-side/images/flag-english.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-english.jpg"' (27b0a520)
+2021-02-26T10:30:58.2593198+07:00 0HM6Q0R5M0QIH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/paypal.png   (ca22a1cb)
+2021-02-26T10:30:58.2594032+07:00 0HM6Q0R5M0QID:00000008 [INF] Request finished in 1.7596ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2596088+07:00 0HM6Q0R5M0QIJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/products/product-1.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2599474+07:00 0HM6Q0R5M0QIK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/flag-german.jpg   (ca22a1cb)
+2021-02-26T10:30:58.2600227+07:00 0HM6Q0R5M0QIE:00000008 [INF] Sending file. Request path: '"/client-side/images/flag-chile.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-chile.jpg"' (27b0a520)
+2021-02-26T10:30:58.2601234+07:00 0HM6Q0R5M0QIH:00000003 [INF] Sending file. Request path: '"/client-side/images/paypal.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\paypal.png"' (27b0a520)
+2021-02-26T10:30:58.2601305+07:00 0HM6Q0R5M0QIE:00000008 [INF] Request finished in 1.0356ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2601695+07:00 0HM6Q0R5M0QIH:00000003 [INF] Request finished in 1.4913ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2602589+07:00 0HM6Q0R5M0QII:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/master-card.png   (ca22a1cb)
+2021-02-26T10:30:58.2602710+07:00 0HM6Q0R5M0QIJ:00000001 [INF] Sending file. Request path: '"/client-side/images/products/product-1.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\products\product-1.jpg"' (27b0a520)
+2021-02-26T10:30:58.2603084+07:00 0HM6Q0R5M0QIJ:00000001 [INF] Request finished in 0.7125ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2603939+07:00 0HM6Q0R5M0QIF:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/logo.png   (ca22a1cb)
+2021-02-26T10:30:58.2604321+07:00 0HM6Q0R5M0QIK:00000001 [INF] Sending file. Request path: '"/client-side/images/flag-german.jpg"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\flag-german.jpg"' (27b0a520)
+2021-02-26T10:30:58.2604845+07:00 0HM6Q0R5M0QIK:00000001 [INF] Request finished in 0.5606ms 200 image/jpeg (791a596a)
+2021-02-26T10:30:58.2606622+07:00 0HM6Q0R5M0QII:00000003 [INF] Sending file. Request path: '"/client-side/images/master-card.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\master-card.png"' (27b0a520)
+2021-02-26T10:30:58.2607006+07:00 0HM6Q0R5M0QII:00000003 [INF] Request finished in 0.4537ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2607281+07:00 0HM6Q0R5M0QIH:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/discover.png   (ca22a1cb)
+2021-02-26T10:30:58.2608415+07:00 0HM6Q0R5M0QIF:00000006 [INF] Sending file. Request path: '"/client-side/images/logo.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\logo.png"' (27b0a520)
+2021-02-26T10:30:58.2608851+07:00 0HM6Q0R5M0QIF:00000006 [INF] Request finished in 0.5127ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2611083+07:00 0HM6Q0R5M0QIH:00000004 [INF] Sending file. Request path: '"/client-side/images/discover.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\discover.png"' (27b0a520)
+2021-02-26T10:30:58.2611484+07:00 0HM6Q0R5M0QIH:00000004 [INF] Request finished in 0.4308ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2630965+07:00 0HM6Q0R5M0QIE:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/footer-logo.png   (ca22a1cb)
+2021-02-26T10:30:58.2637924+07:00 0HM6Q0R5M0QID:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/images/visa.png   (ca22a1cb)
+2021-02-26T10:30:58.2643790+07:00 0HM6Q0R5M0QIE:00000009 [INF] Sending file. Request path: '"/client-side/images/footer-logo.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\footer-logo.png"' (27b0a520)
+2021-02-26T10:30:58.2644588+07:00 0HM6Q0R5M0QIE:00000009 [INF] Request finished in 1.4093ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2645431+07:00 0HM6Q0R5M0QID:00000009 [INF] Sending file. Request path: '"/client-side/images/visa.png"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\images\visa.png"' (27b0a520)
+2021-02-26T10:30:58.2646083+07:00 0HM6Q0R5M0QID:00000009 [INF] Request finished in 0.8477ms 200 image/png (791a596a)
+2021-02-26T10:30:58.2951450+07:00 0HM6Q0R5M0QII:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/bootstrap.min.css   (ca22a1cb)
+2021-02-26T10:30:58.2954887+07:00 0HM6Q0R5M0QIH:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/font-awesome.min.css   (ca22a1cb)
+2021-02-26T10:30:58.2958090+07:00 0HM6Q0R5M0QIF:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/animate.css   (ca22a1cb)
+2021-02-26T10:30:58.2959280+07:00 0HM6Q0R5M0QIK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/pe-icon-7-stroke.min.css   (ca22a1cb)
+2021-02-26T10:30:58.2959412+07:00 0HM6Q0R5M0QID:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/revolution-slider.css   (ca22a1cb)
+2021-02-26T10:30:58.2963314+07:00 0HM6Q0R5M0QIE:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/simple-line-icons.css   (ca22a1cb)
+2021-02-26T10:30:58.2964104+07:00 0HM6Q0R5M0QIJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/flexslider.css   (ca22a1cb)
+2021-02-26T10:30:58.2972737+07:00 0HM6Q0R5M0QIF:00000007 [INF] Sending file. Request path: '"/client-side/css/animate.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\animate.css"' (27b0a520)
+2021-02-26T10:30:58.2973621+07:00 0HM6Q0R5M0QIF:00000007 [INF] Request finished in 1.5751ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2973577+07:00 0HM6Q0R5M0QIG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/jquery-ui.css   (ca22a1cb)
+2021-02-26T10:30:58.2973886+07:00 0HM6Q0R5M0QIL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/responsive.css   (ca22a1cb)
+2021-02-26T10:30:58.2974194+07:00 0HM6Q0R5M0QIM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/quick_view_popup.css   (ca22a1cb)
+2021-02-26T10:30:58.2974552+07:00 0HM6Q0R5M0QIN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/owl.transitions.css   (ca22a1cb)
+2021-02-26T10:30:58.2979801+07:00 0HM6Q0R5M0QIO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/owl.carousel.css   (ca22a1cb)
+2021-02-26T10:30:58.2979747+07:00 0HM6Q0R5M0QIK:00000002 [INF] Sending file. Request path: '"/client-side/css/pe-icon-7-stroke.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\pe-icon-7-stroke.min.css"' (27b0a520)
+2021-02-26T10:30:58.2980491+07:00 0HM6Q0R5M0QIK:00000002 [INF] Request finished in 2.1345ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2981349+07:00 0HM6Q0R5M0QIJ:00000002 [INF] Sending file. Request path: '"/client-side/css/flexslider.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\flexslider.css"' (27b0a520)
+2021-02-26T10:30:58.2981796+07:00 0HM6Q0R5M0QIP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/style.css   (ca22a1cb)
+2021-02-26T10:30:58.2982108+07:00 0HM6Q0R5M0QIJ:00000002 [INF] Request finished in 1.8203ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2982930+07:00 0HM6Q0R5M0QIQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/tooltip.css   (ca22a1cb)
+2021-02-26T10:30:58.2984354+07:00 0HM6Q0R5M0QID:0000000A [INF] Sending file. Request path: '"/client-side/css/revolution-slider.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\revolution-slider.css"' (27b0a520)
+2021-02-26T10:30:58.2980378+07:00 0HM6Q0R5M0QIH:00000005 [INF] Sending file. Request path: '"/client-side/css/font-awesome.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\font-awesome.min.css"' (27b0a520)
+2021-02-26T10:30:58.2984775+07:00 0HM6Q0R5M0QID:0000000A [INF] Request finished in 2.5453ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2984899+07:00 0HM6Q0R5M0QIR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/featured-box.css   (ca22a1cb)
+2021-02-26T10:30:58.2985218+07:00 0HM6Q0R5M0QIH:00000005 [INF] Request finished in 3.0656ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2981578+07:00 0HM6Q0R5M0QIE:0000000A [INF] Sending file. Request path: '"/client-side/css/simple-line-icons.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\simple-line-icons.css"' (27b0a520)
+2021-02-26T10:30:58.2986051+07:00 0HM6Q0R5M0QIE:0000000A [INF] Request finished in 2.2981ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2986299+07:00 0HM6Q0R5M0QIS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/post.css   (ca22a1cb)
+2021-02-26T10:30:58.2986755+07:00 0HM6Q0R5M0QIN:00000001 [INF] Sending file. Request path: '"/client-side/css/owl.transitions.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\owl.transitions.css"' (27b0a520)
+2021-02-26T10:30:58.2987063+07:00 0HM6Q0R5M0QIL:00000001 [INF] Sending file. Request path: '"/client-side/css/responsive.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\responsive.css"' (27b0a520)
+2021-02-26T10:30:58.2987227+07:00 0HM6Q0R5M0QIN:00000001 [INF] Request finished in 1.276ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2987460+07:00 0HM6Q0R5M0QIL:00000001 [INF] Request finished in 1.3749ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2986940+07:00 0HM6Q0R5M0QIG:00000003 [INF] Sending file. Request path: '"/client-side/css/jquery-ui.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\jquery-ui.css"' (27b0a520)
+2021-02-26T10:30:58.2988039+07:00 0HM6Q0R5M0QIM:00000001 [INF] Sending file. Request path: '"/client-side/css/quick_view_popup.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\quick_view_popup.css"' (27b0a520)
+2021-02-26T10:30:58.2988327+07:00 0HM6Q0R5M0QIG:00000003 [INF] Request finished in 1.5001ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2988461+07:00 0HM6Q0R5M0QIQ:00000001 [INF] Sending file. Request path: '"/client-side/css/shortcodes/tooltip.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\tooltip.css"' (27b0a520)
+2021-02-26T10:30:58.2988916+07:00 0HM6Q0R5M0QIM:00000001 [INF] Request finished in 1.4495ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2989039+07:00 0HM6Q0R5M0QIQ:00000001 [INF] Request finished in 0.6095ms 200 text/css (791a596a)
+2021-02-26T10:30:58.2989532+07:00 0HM6Q0R5M0QIR:00000001 [INF] Sending file. Request path: '"/client-side/css/shortcodes/featured-box.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\featured-box.css"' (27b0a520)
+2021-02-26T10:30:58.2994988+07:00 0HM6Q0R5M0QIP:00000001 [INF] Sending file. Request path: '"/client-side/css/style.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\style.css"' (27b0a520)
+2021-02-26T10:30:58.2995764+07:00 0HM6Q0R5M0QIP:00000001 [INF] Request finished in 1.4177ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3002462+07:00 0HM6Q0R5M0QIR:00000001 [INF] Request finished in 0.5324ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3003645+07:00 0HM6Q0R5M0QIS:00000001 [INF] Sending file. Request path: '"/client-side/css/shortcodes/post.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\post.css"' (27b0a520)
+2021-02-26T10:30:58.3004230+07:00 0HM6Q0R5M0QIS:00000001 [INF] Request finished in 1.8696ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3004353+07:00 0HM6Q0R5M0QIO:00000001 [INF] Sending file. Request path: '"/client-side/css/owl.carousel.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\owl.carousel.css"' (27b0a520)
+2021-02-26T10:30:58.3004342+07:00 0HM6Q0R5M0QII:00000004 [INF] Sending file. Request path: '"/client-side/css/bootstrap.min.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\bootstrap.min.css"' (27b0a520)
+2021-02-26T10:30:58.3004951+07:00 0HM6Q0R5M0QII:00000004 [INF] Request finished in 5.4281ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3005076+07:00 0HM6Q0R5M0QIO:00000001 [INF] Request finished in 2.5354ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3028436+07:00 0HM6Q0R5M0QIT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/shortcodes.css   (ca22a1cb)
+2021-02-26T10:30:58.3029886+07:00 0HM6Q0R5M0QIU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/blog.css   (ca22a1cb)
+2021-02-26T10:30:58.3035516+07:00 0HM6Q0R5M0QIM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcodes/pricing-table.css   (ca22a1cb)
+2021-02-26T10:30:58.3035781+07:00 0HM6Q0R5M0QIU:00000001 [INF] Sending file. Request path: '"/client-side/css/blog.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\blog.css"' (27b0a520)
+2021-02-26T10:30:58.3037837+07:00 0HM6Q0R5M0QIU:00000001 [INF] Request finished in 0.8051ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3039946+07:00 0HM6Q0R5M0QIM:00000002 [INF] Sending file. Request path: '"/client-side/css/shortcodes/pricing-table.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\pricing-table.css"' (27b0a520)
+2021-02-26T10:30:58.3040328+07:00 0HM6Q0R5M0QIM:00000002 [INF] Request finished in 0.5127ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3043376+07:00 0HM6Q0R5M0QIT:00000001 [INF] Sending file. Request path: '"/client-side/css/shortcodes/shortcodes.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcodes\shortcodes.css"' (27b0a520)
+2021-02-26T10:30:58.3043873+07:00 0HM6Q0R5M0QIT:00000001 [INF] Request finished in 1.6182ms 200 text/css (791a596a)
+2021-02-26T10:30:58.3054426+07:00 0HM6Q0R5M0QIO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/shortcode.css   (ca22a1cb)
+2021-02-26T10:30:58.3061408+07:00 0HM6Q0R5M0QIO:00000002 [INF] Sending file. Request path: '"/client-side/css/shortcode.css"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\css\shortcode.css"' (27b0a520)
+2021-02-26T10:30:58.3062316+07:00 0HM6Q0R5M0QIO:00000002 [INF] Request finished in 0.8414ms 200 text/css (791a596a)
+2021-02-26T10:30:58.5102591+07:00 0HM6Q0R5M0QID:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0   (ca22a1cb)
+2021-02-26T10:30:58.5102534+07:00 0HM6Q0R5M0QIN:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2021-02-26T10:30:58.5111584+07:00 0HM6Q0R5M0QID:0000000B [INF] Sending file. Request path: '"/client-side/fonts/simple-line-icons/Simple-Line-Icons.woff2"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\fonts\simple-line-icons\Simple-Line-Icons.woff2"' (27b0a520)
+2021-02-26T10:30:58.5112459+07:00 0HM6Q0R5M0QID:0000000B [INF] Request finished in 1.0711ms 200 font/woff2 (791a596a)
+2021-02-26T10:30:58.5114040+07:00 0HM6Q0R5M0QIN:00000002 [INF] Sending file. Request path: '"/client-side/fonts/font-awesome/fontawesome-webfont.woff2"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\client-side\fonts\font-awesome\fontawesome-webfont.woff2"' (27b0a520)
+2021-02-26T10:30:58.5114756+07:00 0HM6Q0R5M0QIN:00000002 [INF] Request finished in 1.316ms 200 font/woff2 (791a596a)
+2021-02-26T10:30:58.5846169+07:00 0HM6Q0R5M0QIG:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44385/client-side/css/bootstrap.min.css.map   (ca22a1cb)
+2021-02-26T10:30:58.5853549+07:00 0HM6Q0R5M0QIG:00000004 [WRN] Error unprotecting the session cookie. (65f95c31)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Session.CookieProtection.Unprotect(IDataProtector protector, String protectedText, ILogger logger)
+2021-02-26T10:30:58.5857252+07:00 0HM6Q0R5M0QIG:00000004 [INF] Request finished in 1.1562ms 404  (791a596a)
+2021-02-26T10:30:58.8767549+07:00 0HM6Q0R5M0QIR:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44385/favicon.ico   (ca22a1cb)
+2021-02-26T10:30:58.8831869+07:00 0HM6Q0R5M0QIR:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"E:\Web_Developer\Practice\BackEnd\dotnetcore\ShopApplication\ShopApplication\wwwroot\favicon.ico"' (27b0a520)
+2021-02-26T10:30:58.8832485+07:00 0HM6Q0R5M0QIR:00000002 [INF] Request finished in 6.5281ms 200 image/x-icon (791a596a)
