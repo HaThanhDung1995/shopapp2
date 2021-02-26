@@ -18,6 +18,7 @@ using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using ShopApplication.Application.Implementations;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Authorization;
+using ShopApplication.Extensions;
 using ShopApplication.Helpers;
 using ShopApplication.Services;
 
@@ -87,6 +88,13 @@ namespace ShopApplication
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
             #endregion
+
+            #region Tối ưu hóa hình ảnh
+
+            services.AddImageResizer();
+
+            #endregion
+
 
             #region Cấu hình Auto Mapper
             services.AddAutoMapper();
@@ -175,6 +183,7 @@ namespace ShopApplication
             }
 
             app.UseHttpsRedirection();
+            app.UseImageResizer();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
