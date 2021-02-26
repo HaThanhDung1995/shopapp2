@@ -140,6 +140,18 @@ namespace ShopApplication
 
             #endregion
 
+            #region Facebook,Gmail API
+
+            services.AddAuthentication()
+                .AddFacebook(facebookOpts =>
+                {
+                    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });
+            
+
+            #endregion
+
             #region Service
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
