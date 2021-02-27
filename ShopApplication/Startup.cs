@@ -15,6 +15,8 @@ using ShopApplication.Infrastructure.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using ShopApplication.Application.Dapper.Implementation;
+using ShopApplication.Application.Dapper.Interfaces;
 using ShopApplication.Application.Implementations;
 using ShopApplication.Application.Interfaces;
 using ShopApplication.Authorization;
@@ -164,7 +166,7 @@ namespace ShopApplication
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
-            //services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IReportService, ReportService>();
             services.AddTransient<IAnnouncementService, AnnouncementService>();
 
 

@@ -46,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShopApplication.Application.Dapper\ShopApplication.Application.Dapper.csproj" />
     <ProjectReference Include="..\ShopApplication.Application\ShopApplication.Application.csproj" />
     <ProjectReference Include="..\ShopApplication.Data.EF\ShopApplication.Data.EF.csproj" />
     <ProjectReference Include="..\ShopApplication.Data\ShopApplication.Data.csproj" />
